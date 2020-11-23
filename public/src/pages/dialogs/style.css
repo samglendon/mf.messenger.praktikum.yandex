@@ -1,0 +1,16 @@
+@import url(../../vendor/normalize.css);
+@import url(../../vendor/common.css);
+
+@import url(../../components/root/root.css);
+
+@import url(../../components/common/button.css);
+@import url(../../components/common/search/search.css);
+@import url(../../components/common/input-field/input-field.css);
+
+@import url(../../components/dialogs-page/dialogs-page.css);
+@import url(../../components/contacts/contacts.css);
+@import url(../../components/dialogs/dialogs.css);
+@import url(../../components/message/message.css);
+
+@import url(../../components/common/overlay.css);
+@import url(../../components/common/elem-hidden.css);

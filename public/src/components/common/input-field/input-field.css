@@ -1,0 +1,17 @@
+@import url(input-field__label.css);
+@import url(input-field__input.css);
+@import url(input-field__error-message.css);
+@import url(input-field__error-message_common.css);
+
+
+.input-field {
+  margin-top: 16px;
+}
+
+.input-field_invalid .input-field__input {
+  border-color: #FF3333;
+}
+
+.input-field_invalid .input-field__error-message {
+  opacity: 1;
+}

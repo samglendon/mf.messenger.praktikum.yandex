@@ -1,0 +1,19 @@
+@import "./fonts/fonts.css";
+
+:root {
+  --color-main-primary: #1A1B22;
+  --color-main-white: #fff;
+  --color-gray: #f5f6f7;
+  --color-blue: #2f71e5;
+  --color-lightblue: #347eff;
+  --color-gray-locked: #e6e8eb;
+
+  --color-input-field-border: #3369F3;
+  --color-darkblue: #3369F3;
+  --color-text-first: #999999;
+  --color-input-fill: #EFEFEF;
+  --color-background: #FBFBFB;
+  --color-border: #a4a4a4;
+
+  font-size: 16px;
+}

@@ -1,0 +1,7 @@
+.dialogs__control {
+  background-color: transparent;
+  cursor: pointer;
+
+  border: none;
+  outline: none;
+}

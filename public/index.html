@@ -1,13 +1,99 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>sprint1</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="./src/images/faviconka.png" type="image/x-icon"/>
+  <meta name="keywords" content="Messenger, comfortable, for everyone">
+  <meta name="description" content="Удобный мессенджер для всех желающих">
+  <meta name="author" content="Михаил Кузнецов, RGlen">
+  <title>Аутентификация</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-<h1>привет</h1>
+<div class="root">
+
+  <div class="overlay"></div>
+
+  <div class="auth">
+
+    <div class="auth__content auth__content-enter elem-hidden" >
+      <h3 class="auth__title">Вход</h3>
+      <form class="auth__form" name="enter" novalidate>
+        <div class="input-field">
+          <label for="login" class="input-field__label">Логин</label>
+          <input id="login" type="text" name="login" class="input-field__input input-field__input_type_email"
+                 placeholder="Введите логи" required>
+          <span class="input-field__error-message input-field__error-message_login"></span>
+        </div>
+        <div class="input-field">
+          <label for="password" class="input-field__label">Пароль</label>
+          <input id="password" type="password" name="password"
+                 class="input-field__input input-field__input_type_password"
+                 placeholder="Введите пароль" required>
+          <span class="input-field__error-message  input-field__error-message_password"></span>
+        </div>
+        <button class="button auth__button auth__button_enter" name='btn' disabled>Авторизоваться</button>
+      </form>
+      <p class="auth__or"><span class="auth__option auth__option_registration">Нет аккаунта?</span></p>
+    </div>
+
+    <div class="auth__content auth__content-registration">
+      <h3 class="auth__title">Регистрация</h3>
+      <form class="auth__form" name="registration" novalidate>
+        <div class="input-field">
+          <label for="email-reg" class="input-field__label">Email</label>
+          <input id="email-reg" type="text" name="email" class="input-field__input input-field__input_type_email"
+                 placeholder="Введите почту" required>
+          <span class="input-field__error-message input-field__error-message_email elem-hidden"></span>
+        </div>
+        <div class="input-field">
+          <label for="login-reg" class="input-field__label">Логин</label>
+          <input id="login-reg" type="text" name="login" class="input-field__input input-field__input_type_login"
+                 placeholder="Введите логин" required>
+          <span class="input-field__error-message input-field_error-message_login elem-hidden"></span>
+        </div>
+        <div class="input-field">
+          <label for="name-reg" class="input-field__label">Имя</label>
+          <input id="name-reg" type="text" name="name" class="input-field__input input-field__input_type_name"
+                 placeholder="Введите своё имя" required>
+          <span class="input-field__error-message input-field_error-message_name elem-hidden"></span>
+        </div>
+        <div class="input-field">
+          <label for="second-name-reg" class="input-field__label">Фамилия</label>
+          <input id="second-name-reg" type="text" name="name" class="input-field__input input-field__input_type_second-name"
+                 placeholder="Введите свою фамилию" required>
+          <span class="input-field__error-message input-field_error-message_second-name elem-hidden"></span>
+        </div>
+        <div class="input-field">
+          <label for="tel-reg" class="input-field__label">Телефон</label>
+          <input id="tel-reg" type="text" name="name" class="input-field__input input-field__input_type_tel"
+                 placeholder="+7-(999)-999-99-99" required>
+          <span class="input-field__error-message input-field_error-message_tel elem-hidden"></span>
+        </div>
+        <div class="input-field">
+          <label for="password-reg" class="input-field__label">Пароль</label>
+          <input id="password-reg" type="password" name="password"
+                 class="input-field__input input-field__input_type_password"
+                 placeholder="Введите пароль" required>
+          <span class="input-field__error-message input-field__error-message_password elem-hidden"></span>
+        </div>
+        <div class="input-field">
+          <label for="password-again-reg" class="input-field__label">Пароль</label>
+          <input id="password-again-reg" type="password" name="password-again"
+                 class="input-field__input input-field__input_type_password"
+                 placeholder="Повторите пароль еще раз" required>
+          <span class="input-field__error-message input-field__error-message_password-again elem-hidden"></span>
+        </div>
+        <button class="button auth__button auth__button_registration" name='btn' disabled>Зарегистрироваться</button>
+      </form>
+      <p class="auth__or"><span class="auth__option auth__option_enter">Войти</span></p>
+    </div>
+
+  </div>
+</div>
+
 </body>
 </html>
