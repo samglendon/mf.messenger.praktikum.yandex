@@ -1,0 +1,17 @@
+.profile__item-name {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 13px;
+
+  color: var(--color-main-primary);
+}
+
+
+.profile__item-name_change {
+  font-weight: 500;
+  color: var(--color-darkblue);
+}
+.profile__item-name_exit {
+  font-weight: 500;
+  color: red;
+}

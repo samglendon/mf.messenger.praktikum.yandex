@@ -1,0 +1,7 @@
+.profile__list {
+  width: 100%;
+  margin-top: 50px;
+
+  list-style-type: none;
+  padding: 0;
+}
