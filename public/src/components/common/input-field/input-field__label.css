@@ -5,5 +5,9 @@
   font-size: 12px;
   line-height: 15px;
 
-  color: var(--color-gray-text);
+  color: var(--color-gray);
+}
+
+.input-field__label_add {
+  color: var( --color-darkblue)
 }

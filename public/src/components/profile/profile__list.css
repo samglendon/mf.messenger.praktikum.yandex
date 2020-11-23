@@ -5,3 +5,7 @@
   list-style-type: none;
   padding: 0;
 }
+
+.profile__list_pass {
+  min-height: 187px;
+}

@@ -23,9 +23,11 @@
   box-sizing: border-box;
   padding: 50px 30px 30px;
 }
+
 .modal_popup {
   padding: 40px 30px;
   width: 340px;
+  /*height: 257px;*/
 }
 
 

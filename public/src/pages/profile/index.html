@@ -15,9 +15,9 @@
 <body>
 <div class="root">
 
-  <div class="overlay overlay_modal elem-hidden"></div>
+  <div class="overlay overlay_modal"></div>
 
-  <div class="modal modal_popup elem-hidden">
+  <div class="modal modal_popup">
     <img src="../../images/close.svg" alt="закрыть" class="modal__close">
 
     <div class="modal__content modal__content_add-user elem-hidden">
@@ -34,17 +34,17 @@
       </form>
     </div>
 
-    <div class="modal__content modal__content_remove-user">
-      <h3 class="modal__title modal__title_popup">Удалить пользователя</h3>
+    <div class="modal__content modal__content_upload-file">
+      <h3 class="modal__title modal__title_popup">Загрузите файл</h3>
       <form class="modal__form" name="auth" novalidate>
         <div class="input-field">
-          <label for="remove-login" class="input-field__label">Логин</label>
-          <input id="remove-login" type="text" name="login"
-                 class="input-field__input input-field__input_type_remove-login"
+          <label for="add-file" class="input-field__label input-field__label_add">Выбрать файл на компьютере</label>
+          <input id="add-file" type="file" name="file"
+                 class="input-field__input input-field__input_type_add-file elem-hidden"
                  placeholder="Введите логин" required>
           <span class="input-field__error-message input-field_error-message_remove-login elem-hidden"></span>
         </div>
-        <button class="button modal__button modal__button_popup modal__button_remove-user" name='btn' disabled>Удалить
+        <button class="button modal__button modal__button_popup modal__button_remove-user" name='btn' disabled>Поменять
         </button>
       </form>
     </div>
@@ -68,49 +68,82 @@
           <div class="profile__overlay"></div>
           <p class="profile__prompt">Поменять аватар</p>
         </div>
-        <p class="profile__name">Иван</p>
-        <form class="profile__edit" name="edit" novalidate>
+        <p class="profile__name elem-covered">Иван</p>
+
+        <form class="profile__edit elem-hidden" name="edit" novalidate>
           <ul class="profile__list">
             <li class="profile__item">
               <p class="profile__item-name">Почта</p>
               <p class="profile__item-value elem-hidden">pochta@yandex.ru</p>
               <input class="profile__input profile__input_email"
-                     type="email"
+                     type="email" name="email"
                      value="pochta@yandex.ru"
                      required>
             </li>
             <li class="profile__item">
               <p class="profile__item-name">Логин</p>
               <p class="profile__item-value elem-hidden">ivanivanov</p>
-              <input class="profile__input"
-                     type="text"
+              <input class="profile__input profile__input_login"
+                     type="text" name="login"
                      value="ivanivanov"
                      required>
             </li>
             <li class="profile__item">
               <p class="profile__item-name">Имя</p>
               <p class="profile__item-value elem-hidden">Иван</p>
-              <input class="profile__input"
-                     type="text"
+              <input class="profile__input profile__input_name"
+                     type="text" name="name"
                      value="Иван"
                      required>
             </li>
             <li class="profile__item">
               <p class="profile__item-name">Фамилия</p>
               <p class="profile__item-value elem-hidden">Иванов</p>
-              <input class="profile__input"
-                     type="text"
+              <input class="profile__input profile__input_second-name"
+                     type="text" name="second-name"
                      value="Иванов">
             </li>
             <li class="profile__item">
               <p class="profile__item-name">Имя в чате</p>
               <p class="profile__item-value elem-hidden">Иван</p>
-              <input type="email" class="profile__input">
+              <input class="profile__input profile__input_chat-name"
+                     type="text" name="chat-name"
+                     value="Иван">
             </li>
             <li class="profile__item">
               <p class="profile__item-name">Телефон</p>
               <p class="profile__item-value elem-hidden">+7 (909) 967 30 30</p>
-              <input type="email" class="profile__input">
+              <input class="profile__input profile__input_tel"
+                     type="tel" name="tel"
+                     value="+7 (909) 967 30 30">
+            </li>
+          </ul>
+
+          <button class="button profile__button profile__button_edit" name='btn'>Сохранить</button>
+        </form>
+
+        <form class="profile__edit" name="change" novalidate>
+          <ul class="profile__list profile__list_pass">
+            <li class="profile__item">
+              <p class="profile__item-name">Старый пароль</p>
+              <input class="profile__input profile__input_old-password"
+                     type="password" name="old-password"
+                     value="1234567"
+                     required>
+            </li>
+            <li class="profile__item">
+              <p class="profile__item-name">Новый пароль</p>
+              <input class="profile__input profile__input_login"
+                     type="password" name="new-password"
+                     value=""
+                     required>
+            </li>
+            <li class="profile__item">
+              <p class="profile__item-name">Повторите новый пароль</p>
+              <input class="profile__input profile__input_name"
+                     type="password" name="new-password-again"
+                     value=""
+                     required>
             </li>
           </ul>
 

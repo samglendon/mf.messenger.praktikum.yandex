@@ -8,6 +8,10 @@
 @import url(profile__item-name.css);
 @import url(profile__item-value.css);
 @import url(profile__button.css);
+@import url(profile__edit.css);
+@import url(profile__input.css);
+
+
 
 .profile {
   width: 100%;
