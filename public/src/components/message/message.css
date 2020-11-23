@@ -1,0 +1,62 @@
+@import url(message-out.css);
+@import url(message-in.css);
+@import url(selectable-text.css);
+@import url(message__container.css);
+@import url(message__box.css);
+@import url(message__tail-out.css);
+@import url(message__wrapper.css);
+@import url(message__core.css);
+@import url(message__text-container.css);
+@import url(message__text-inner-container.css);
+@import url(message__text.css);
+@import url(message__space.css);
+@import url(message__time-container.css);
+@import url(message__time-inner-container.css);
+@import url(message__time.css);
+@import url(message__status-container.css);
+@import url(message__status.css);
+@import url(message__tail-in.css);
+@import url(message__img.css);
+@import url(message__date.css);
+
+@import url(message-first.css);
+
+
+svg {
+  display: block;
+  pointer-events: none;
+}
+
+.message-out .message__tail-out {
+  right: -8px;
+  color: var(--outgoing-background);
+}
+
+.message-out.message-first .message__wrapper {
+  border-top-right-radius: 0;
+}
+
+.message-out .message__wrapper {
+  background-color: var(--outgoing-background);
+}
+
+/*.message__text img {*/
+/*  vertical-align: middle;*/
+/*}*/
+
+
+
+.message-in .message__tail-in {
+  left: -8px;
+  color: var(--incoming-background);
+}
+
+.message-in.message-first .message__wrapper {
+  border-top-left-radius: 0;
+}
+
+.message-in .message__wrapper {
+  background-color: var(--incoming-background);
+}
+
+

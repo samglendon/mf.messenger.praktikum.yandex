@@ -1,0 +1,7 @@
+.message__time-inner-container {
+  height: 15px;
+  color: var(--bubble-meta);
+  font-size: 11px;
+  line-height: 15px;
+  white-space: nowrap;
+}

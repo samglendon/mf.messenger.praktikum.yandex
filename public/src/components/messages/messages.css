@@ -1,0 +1,10 @@
+.messages {
+  padding: 1% 0;
+  overflow: auto;
+  flex: auto;
+  box-sizing: border-box;
+  /*background-color: var(--color-gray);*/
+  height: calc(100vh - 54px - 54px);
+}
+
+

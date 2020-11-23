@@ -1,0 +1,7 @@
+.send-message__attach-img {
+  cursor: pointer;
+}
+
+.send-message__attach-img:hover path{
+  fill: var(--color-blue);
+}

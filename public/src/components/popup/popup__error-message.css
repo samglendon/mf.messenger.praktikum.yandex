@@ -1,0 +1,11 @@
+.popup__error-message {
+  color: #FF3333;
+  font-size: 0.8em;
+  transition: .3s;
+  padding: 5px 10px;
+  display: block;
+  height: 15px;
+  margin-bottom: 6px;
+
+  opacity: 0;
+}
