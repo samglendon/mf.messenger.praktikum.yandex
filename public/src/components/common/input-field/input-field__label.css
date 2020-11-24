@@ -9,5 +9,11 @@
 }
 
 .input-field__label_add {
-  color: var( --color-darkblue)
+  color: var( --color-darkblue);
+  display: block;
+  margin: auto;
+  text-align: center;
+  width: 105px;
+
+  cursor: pointer;
 }

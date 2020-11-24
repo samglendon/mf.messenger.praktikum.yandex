@@ -13,3 +13,8 @@
 .modal__title_popup {
   margin-bottom: 50px;
 }
+
+.modal__title_error {
+  font-size: 16px;
+  color: red;
+}

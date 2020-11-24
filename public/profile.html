@@ -4,50 +4,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="../../images/faviconka.png" type="image/x-icon"/>
+  <link rel="icon" href="src/images/faviconka.png" type="image/x-icon"/>
   <meta name="keywords" content="Messenger, comfortable, for everyone">
   <meta name="description" content="Удобный мессенджер для всех желающих">
   <meta name="author" content="Михаил Кузнецов, RGlen">
   <title>Диалоги</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="src/pages/profile/style.css">
 </head>
 
 <body>
 <div class="root">
 
-  <div class="overlay overlay_modal"></div>
+  <div class="overlay overlay_modal elem-hidden"></div>
 
-  <div class="modal modal_popup">
-    <img src="../../images/close.svg" alt="закрыть" class="modal__close">
+  <div class="modal modal_popup elem-hidden">
+    <img src="src/images/close.svg" alt="закрыть" class="modal__close">
 
-    <div class="modal__content modal__content_add-user elem-hidden">
-      <h3 class="modal__title modal__title_popup">Добавить пользователя</h3>
-      <form class="modal__form" name="auth" novalidate>
-        <div class="input-field">
-          <label for="add-login" class="input-field__label">Логин</label>
-          <input id="add-login" type="text" name="login" class="input-field__input input-field__input_type_add-login"
-                 placeholder="Введите логин" required>
-          <span class="input-field__error-message input-field_error-message_add-login elem-hidden"></span>
-        </div>
-        <button class="button modal__button modal__button_popup modal__button_add-user" name='btn' disabled>Добавить
-        </button>
-      </form>
-    </div>
-
-    <div class="modal__content modal__content_upload-file">
+<!--    стоит использовать разные модальные окна, или лучше сделать один универсальный с помощью скрипта?-->
+    <div class="modal__content modal__content_upload-file elem-hidden">
       <h3 class="modal__title modal__title_popup">Загрузите файл</h3>
-      <form class="modal__form" name="auth" novalidate>
+      <form class="modal__form" name="add-file" novalidate>
         <div class="input-field">
           <label for="add-file" class="input-field__label input-field__label_add">Выбрать файл на компьютере</label>
           <input id="add-file" type="file" name="file"
                  class="input-field__input input-field__input_type_add-file elem-hidden"
-                 placeholder="Введите логин" required>
-          <span class="input-field__error-message input-field_error-message_remove-login elem-hidden"></span>
+                 placeholder="" required>
+          <span class="input-field__error-message input-field_error-message_add elem-hidden"></span>
         </div>
-        <button class="button modal__button modal__button_popup modal__button_remove-user" name='btn' disabled>Поменять
-        </button>
+        <button class="button modal__button modal__button_popup modal__button_add" name='btn' disabled>Поменять</button>
       </form>
     </div>
+
+    <div class="modal__content modal__content_error elem-hidden">
+      <h3 class="modal__title modal__title_popup modal__title_error">Ошибка, попробуйте ещё раз</h3>
+      <form class="modal__form" name="add-file" novalidate>
+        <div class="input-field">
+          <label for="add-file-again" class="input-field__label input-field__label_add">Выбрать файл на компьютере</label>
+          <input id="add-file-again" type="file" name="file"
+                 class="input-field__input input-field__input_type_add-file elem-hidden"
+                 placeholder="" required>
+          <span class="input-field__error-message input-field_error-message_add elem-hidden"></span>
+        </div>
+        <button class="button modal__button modal__button_popup modal__button_add" name='btn' disabled>Поменять</button>
+      </form>
+    </div>
+
+    <div class="modal__content modal__content_success elem-hidden">
+      <h3 class="modal__title modal__title_popup">Файл загружен</h3>
+      <form class="modal__form" name="success" novalidate>
+        <div class="input-field">
+          <p  class="input-field__label input-field__label_success">pic.jpg</p>
+<!--          <label for="success" class="input-field__label input-field__label_add">pic.jpg</label>-->
+<!--          <input id="success" type="file" name="file"-->
+<!--                 class="input-field__input input-field__input_type_add-file elem-hidden"-->
+<!--                 placeholder="Введите логин" required>-->
+          <span class="input-field__error-message input-field_error-message_add elem-hidden"></span>
+        </div>
+        <button class="button modal__button modal__button_popup modal__button_add" name='btn'>Поменять</button>
+      </form>
+    </div>
+
 
   </div>
 
