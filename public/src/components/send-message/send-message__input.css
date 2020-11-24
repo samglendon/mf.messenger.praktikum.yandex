@@ -1,0 +1,13 @@
+.send-message__input {
+  width: 100%;
+  background-color: var(--color-input-fill);
+  border-radius: 30px;
+  border: none;
+  outline: none;
+
+  padding-left: 20px;
+}
+
+.send-message__input::placeholder {
+
+}

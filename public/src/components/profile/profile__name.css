@@ -1,0 +1,11 @@
+.profile__name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  /* identical to box height, or 100% */
+
+  text-align: center;
+  color: var(--color-main-primary);
+
+  margin-top: 21px;
+}

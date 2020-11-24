@@ -1,0 +1,19 @@
+.input-field__label {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: var(--color-gray);
+}
+
+.input-field__label_add {
+  color: var( --color-darkblue);
+  display: block;
+  margin: auto;
+  text-align: center;
+  width: 105px;
+
+  cursor: pointer;
+}

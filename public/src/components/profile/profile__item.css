@@ -1,0 +1,13 @@
+.profile__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.profile__item:last-child {
+  border-bottom: none;
+}

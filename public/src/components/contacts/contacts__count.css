@@ -1,0 +1,7 @@
+.contacts__count {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 12px;
+
+  color: var(--color-main-white);
+}

@@ -1,0 +1,11 @@
+.contacts__item {
+  padding: 12px 10px 0;
+  cursor: pointer;
+}
+.contacts__item:hover {
+  background-color: var(--color-select-item);
+}
+
+.contacts__item.active {
+  background-color: var(--color-active-item);
+}
