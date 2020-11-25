@@ -19,13 +19,13 @@
 
   <div class="modal">
 
-    <div class="modal__content modal__content-enter elem-hidden" >
+    <div class="modal__content modal__content-enter elem-hidden">
       <h3 class="modal__title">Вход</h3>
       <form class="modal__form" name="enter" novalidate>
         <div class="input-field">
           <label for="login" class="input-field__label">Логин</label>
           <input id="login" type="text" name="login" class="input-field__input input-field__input_type_email"
-                 placeholder="Введите логи" required>
+                 placeholder="Введите логин" required>
           <span class="input-field__error-message input-field__error-message_login"></span>
         </div>
         <div class="input-field">
@@ -37,7 +37,7 @@
         </div>
         <button class="button modal__button modal__button_enter" name='btn' disabled>Авторизоваться</button>
       </form>
-      <p class="modal__or"><span class="modal__option modal__option_registration">Нет аккаунта?</span></p>
+      <button class="modal__option modal__option_registration">Нет аккаунта?</button>
     </div>
 
     <div class="modal__content modal__content-registration">
@@ -87,10 +87,11 @@
                  placeholder="Повторите пароль еще раз" required>
           <span class="input-field__error-message input-field__error-message_password-again elem-hidden"></span>
         </div>
-<!--        <button class="button modal__button modal__button_registration" name='btn' disabled>Зарегистрироваться</button>-->
-        <button class="button modal__button modal__button_registration" name='btn'>Зарегистрироваться</button>
+        <button class="button modal__button modal__button_registration" name='btn' disabled>Зарегистрироваться</button>
+<!--        <button class="button modal__button modal__button_registration" name='btn'>Зарегистрироваться</button>-->
       </form>
-      <p class="modal__or"><span class="modal__option modal__option_enter">Войти</span></p>
+<!--      <p class="modal__or"><span class="modal__option modal__option_enter">Войти</span></p>-->
+      <button class="modal__option modal__option_registration">Нет аккаунта?</button>
     </div>
 
   </div>
