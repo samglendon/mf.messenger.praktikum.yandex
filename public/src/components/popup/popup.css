@@ -27,16 +27,7 @@
   border-radius: 16px;
 
   box-sizing: border-box;
-  padding: 34px 36px 28px;
-}
-
-
-.popup__input-container_invalid .popup__input {
-  border-color: #FF3333;
-}
-
-.popup__input-container_invalid .popup__error-message {
-  opacity: 1;
+  padding: 50px 30px 30px;
 }
 
 

@@ -7,5 +7,9 @@
   background: #000;
   opacity: 0.1;
 
-  z-index: 2;
+  z-index: 201;
+}
+
+.overlay_modal {
+  opacity: 0.5;
 }

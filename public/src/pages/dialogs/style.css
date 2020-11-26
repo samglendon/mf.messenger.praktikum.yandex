@@ -10,7 +10,12 @@
 @import url(../../components/dialogs-page/dialogs-page.css);
 @import url(../../components/contacts/contacts.css);
 @import url(../../components/dialogs/dialogs.css);
+@import url(../../components/messages/messages.css);
 @import url(../../components/message/message.css);
+@import url(../../components/send-message/send-message.css);
+@import url(../../components/modal/modal.css);
+@import url(../../components/draw-list/draw-list.css);
 
 @import url(../../components/common/overlay.css);
 @import url(../../components/common/elem-hidden.css);
+@import url(../../components/common/active.css);
