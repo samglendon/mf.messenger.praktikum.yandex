@@ -1,11 +1,15 @@
 const forms = document.forms;
 Object.keys(forms).forEach((form) => {
+  // если у кнопки type="button"
+  // forms[form].btn.addEventListener('click', (e) => {
   forms[form].addEventListener('submit', (e) => {
     e.preventDefault();
     getFormInfo(forms[form])
   })
 });
 
+
+// зачем формам добавлять метод POST, если все запросы будут из js и мы напишем свое API с нужным методом отправки?
 
 function getFormInfo(form) {
   const formData = new FormData(form);
@@ -19,6 +23,11 @@ function getFormInfo(form) {
   console.log(`данные из формы ${form.name}`);
   console.dir(data);
 }
+
+
+
+
+
 
 // const authForm = document.forms.enter;
 // const registrationForm = document.forms.registration;
