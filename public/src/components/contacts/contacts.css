@@ -1,6 +1,5 @@
 @import url(contacts__profile-button.css);
 @import url(contacts__search-container.css);
-@import url(contacts__line.css);
 @import url(contacts__list.css);
 @import url(contacts__item.css);
 @import url(contacts__item-wrapper.css);
@@ -31,5 +30,7 @@
   padding: 0 10px;
 }
 .contacts .contacts__search-container {
-  padding: 0 10px;
+  margin: 0 10px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--color-border);
 }

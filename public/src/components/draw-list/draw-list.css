@@ -1,6 +1,7 @@
 @import url(draw-list__item.css);
 @import url(draw-list__img.css);
 @import url(draw-list__text.css);
+@import url(draw-list__form.css);
 
 
 .draw-list {
@@ -17,6 +18,8 @@
   border-radius: 12px;
 }
 
-.draw-list__item:hover .draw-list__text {
+.draw-list__item:hover form label {
   font-weight: 600;
+
+  cursor: pointer;
 }

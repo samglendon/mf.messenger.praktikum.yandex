@@ -4,6 +4,11 @@
   line-height: 13px;
 
   color: var(--color-main-primary);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 
