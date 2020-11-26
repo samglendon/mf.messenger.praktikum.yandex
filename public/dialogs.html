@@ -15,109 +15,65 @@
 <body>
 <div class="root">
 
-  <div class="overlay overlay_modal elem-hidden"></div>
-
-  <div class="modal modal_popup elem-hidden">
-    <img src="src/images/close.svg" alt="закрыть" class="modal__close">
-
-    <div class="modal__content modal__content_add-user elem-hidden">
-      <h3 class="modal__title modal__title_popup">Добавить пользователя</h3>
-      <form class="modal__form" name="auth" novalidate>
-        <div class="input-field">
-          <label for="add-login" class="input-field__label">Логин</label>
-          <input id="add-login" type="text" name="login" class="input-field__input input-field__input_type_add-login"
-                 placeholder="Введите логин" required>
-          <span class="input-field__error-message input-field_error-message_add-login elem-hidden"></span>
-        </div>
-        <button class="button modal__button modal__button_popup modal__button_add-user" name='btn' disabled>Добавить
-        </button>
-      </form>
-    </div>
-
-    <div class="modal__content modal__content_remove-user">
-      <h3 class="modal__title modal__title_popup">Удалить пользователя</h3>
-      <form class="modal__form" name="auth" novalidate>
-        <div class="input-field">
-          <label for="remove-login" class="input-field__label">Логин</label>
-          <input id="remove-login" type="text" name="login"
-                 class="input-field__input input-field__input_type_remove-login"
-                 placeholder="Введите логин" required>
-          <span class="input-field__error-message input-field_error-message_remove-login elem-hidden"></span>
-        </div>
-        <button class="button modal__button modal__button_popup modal__button_remove-user" name='btn' disabled>Удалить
-        </button>
-      </form>
-    </div>
-
-  </div>
-
-
   <div class="dialogs-page">
 
-    <section class="contacts">
-      <p class="contacts__profile-button">Профиль ></p>
-      <div class="contacts__search-container">
+    <aside class="contacts">
+      <a class="contacts__profile-button" href="./profile.html">Профиль ></a>
+      <form class="contacts__search-container">
         <input class="search contacts__search" type="text" name="search"
                placeholder="   Поиск">
-      </div>
-      <div class="contacts__line"></div>
+      </form>
 
       <ul class="contacts__list">
 
         <li class="contacts__item active">
           <div class="contacts__item-wrapper">
-            <div class="contacts__ava"></div>
+            <img class="contacts__ava" src="./src/images/noavatar.png" alt="фото">
             <div class="contacts__content">
-              <p class="contacts__name">Андрей</p>
+              <h2 class="contacts__name">Андрей</h2>
               <p class="contacts__last-message">Изображение</p>
             </div>
             <div class="contacts__info">
               <p class="contacts__time">11:30</p>
-              <div class="contacts__new-messages">
-                <p class="contacts__count">3</p>
-              </div>
+              <p class="contacts__new-messages">
+                <mark class="contacts__count">3</mark>
+              </p>
             </div>
           </div>
-          <div class="contacts__line contacts__line_inner"></div>
         </li>
         <li class="contacts__item">
           <div class="contacts__item-wrapper">
-            <div class="contacts__ava"></div>
+            <img class="contacts__ava" src="./src/images/noavatar.png" alt="фото">
             <div class="contacts__content">
-              <p class="contacts__name">Киноклуб</p>
+              <h2 class="contacts__name">Киноклуб</h2>
               <p class="contacts__last-message"><span class="contacts__message-owner">Вы: </span>стикер</p>
             </div>
             <div class="contacts__info">
-              <p class="contacts__time">11:30</p>
-              <!--              <div class="contacts__new-messages">-->
-              <!--                <p class="contacts__count">3</p>-->
-              <!--              </div>-->
+              <time class="contacts__time">11:30</time>
             </div>
           </div>
-          <div class="contacts__line contacts__line_inner"></div>
         </li>
         <li class="contacts__item">
           <div class="contacts__item-wrapper">
-            <div class="contacts__ava"></div>
+            <img class="contacts__ava" src="./src/images/noavatar.png" alt="фото">
             <div class="contacts__content">
-              <p class="contacts__name">Илья</p>
+              <h2 class="contacts__name">Илья</h2>
               <p class="contacts__last-message">
                 <span class="contacts__message-owner"></span>
                 Друзья, у меня для вас особенный выпуск новостей! Много чего нужно расскзать
               </p>
             </div>
             <div class="contacts__info">
-              <p class="contacts__time">15:12</p>
-              <div class="contacts__new-messages">
-                <p class="contacts__count">4</p>
-              </div>
+              <time class="contacts__time">15:12</time>
+              <p class="contacts__new-messages">
+                <mark class="contacts__count">4</mark>
+              </p>
             </div>
           </div>
-          <div class="contacts__line contacts__line_inner"></div>
         </li>
 
       </ul>
-    </section>
+    </aside>
 
     <section class="dialogs">
       <p class="dialogs__choose-one elem-hidden">Выберите чат чтобы отправить сообщение</p>
@@ -125,18 +81,15 @@
 
       <div class="dialogs__main">
 
-        <div class="dialogs__head">
+        <header class="dialogs__head">
           <div class="dialogs__info">
-            <div class="dialogs__ava"></div>
-            <p class="dialogs__name">Андрей</p>
+            <img class="dialogs__ava" src="./src/images/noavatar.png" alt="фото">
+            <h1 class="dialogs__name">Андрей</h1>
           </div>
           <div class="dialogs__control">
             <div class="dialogs__button">
-              <svg width="3" height="16" viewBox="0 0 3 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="1.5" cy="2" r="1.5" fill="#1E1E1E"/>
-                <circle cx="1.5" cy="8" r="1.5" fill="#1E1E1E"/>
-                <circle cx="1.5" cy="14" r="1.5" fill="#1E1E1E"/>
-              </svg>
+              <!-- вместо inline svg-->
+              <object type="image/svg+xml" data=src/images/dialogControl.svg id=’object’ class=’icon’></object>
             </div>
 
             <ul class="draw-list dialogs__draw-list">
@@ -172,11 +125,11 @@
               </li>
             </ul>
           </div>
-        </div>
+        </header>
 
-        <div class="messages">
+        <main class="messages">
 
-          <p class="message__date">19 июня</p>
+          <time class="message__date">19 июня</time>
 
           <!-- сообщение пользователя-->
           <div class="message__container message-out message-first">
@@ -202,7 +155,7 @@
                   </div>
                   <div class="message__time-container">
                     <div class="message__time-inner-container">
-                      <span class="message__time">11:50</span>
+                      <time class="message__time">11:50</time>
                       <div class="message__status-container">
                         <span data-testid="msg-dblcheck" aria-label=" Прочитано " data-icon="msg-dblcheck"
                               class="message__status message__status_checked">
@@ -249,7 +202,7 @@
                   </div>
                   <div class="message__time-container">
                     <div class="message__time-inner-container">
-                      <span class="message__time">11:51</span>
+                      <time class="message__time">11:51</time>
                       <div class="message__status-container">
                         <span data-testid="msg-dblcheck" aria-label=" Прочитано " data-icon="msg-dblcheck"
                               class="message__status message__status_checked">
@@ -288,7 +241,7 @@
                   <img src="src/images/test%20img.jpg" class="message__img" alt="">
                   <div class="message__time-container message__time-container_img">
                     <div class="message__time-inner-container">
-                      <span class="message__time">11:51</span>
+                      <time class="message__time">11:51</time>
                     </div>
                   </div>
                 </div>
@@ -296,7 +249,7 @@
             </div>
           </div>
 
-        </div>
+        </main>
 
         <div class="send-message">
           <div class="send-message__attach-container">
@@ -326,6 +279,8 @@
             </div>
             <ul class="draw-list send-message__draw-list">
               <li class="draw-list__item">
+                <!-- хотелось бы, чтобы при нажатии на иконку тоже открывалось меню загрузки файла, можно ли div в label запихнуть?
+                поискал информацию в инете, похоже на холиварную тему -->
                 <div class="draw-list__img">
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -333,7 +288,13 @@
                           fill="#3369F3"/>
                   </svg>
                 </div>
-                <p class="draw-list__text">Фото или Видео</p>
+                <form class="draw-list__form" name="addCommon">
+                  <label for="add-common" class="input-field__label input-field__label_attach">
+                    Фото или Видео</label>
+                  <input class="input-field__input input-field__input_type_add-common elem-hidden"
+                         id="add-common" type="file" name="photoVideo"
+                         placeholder="" required>
+                </form>
               </li>
               <li class="draw-list__item">
                 <div class="draw-list__img">
@@ -343,7 +304,12 @@
                           fill="#3369F3"/>
                   </svg>
                 </div>
-                <p class="draw-list__text">Фото</p>
+                <form class="draw-list__form" name="addPhoto">
+                  <label for="add-photo" class="input-field__label input-field__label_attach">Фото</label>
+                  <input class="input-field__input input-field__input_type_add-photo elem-hidden"
+                         id="add-photo" type="file" name="photo"
+                         placeholder="" required>
+                </form>
               </li>
               <li class="draw-list__item">
                 <div class="draw-list__img">
@@ -353,7 +319,12 @@
                           fill="#3369F3"/>
                   </svg>
                 </div>
-                <p class="draw-list__text">Локация</p>
+                <form class="draw-list__form" name="addLocation">
+                  <label for="add-location" class="input-field__label input-field__label_attach">Локация</label>
+                  <input class="input-field__input input-field__input_type_add-location elem-hidden"
+                         id="add-location" type="file" name="photo"
+                         placeholder="" required>
+                </form>
               </li>
             </ul>
           </div>
@@ -377,6 +348,44 @@
     </section>
   </div>
 
+  <div class="overlay overlay_modal elem-hidden"></div>
+
+  <div class="modal modal_popup elem-hidden">
+    <img src="src/images/close.svg" alt="закрыть" class="modal__close">
+
+    <div class="modal__content modal__content_add-user elem-hidden">
+      <h3 class="modal__title modal__title_popup">Добавить пользователя</h3>
+      <form class="modal__form" name="auth" novalidate>
+        <div class="input-field">
+          <label for="add-login" class="input-field__label">Логин</label>
+          <input id="add-login" type="text" name="login" class="input-field__input input-field__input_type_add-login"
+                 placeholder="Введите логин" required>
+          <span class="input-field__error-message input-field_error-message_add-login elem-hidden"></span>
+        </div>
+        <button class="button modal__button modal__button_popup modal__button_add-user" name='btn' disabled>Добавить
+        </button>
+      </form>
+    </div>
+
+    <div class="modal__content modal__content_remove-user">
+      <h3 class="modal__title modal__title_popup">Удалить пользователя</h3>
+      <form class="modal__form" name="auth" novalidate>
+        <div class="input-field">
+          <label for="remove-login" class="input-field__label">Логин</label>
+          <input id="remove-login" type="text" name="login"
+                 class="input-field__input input-field__input_type_remove-login"
+                 placeholder="Введите логин" required>
+          <span class="input-field__error-message input-field_error-message_remove-login elem-hidden"></span>
+        </div>
+        <button class="button modal__button modal__button_popup modal__button_remove-user" name='btn' disabled>Удалить
+        </button>
+      </form>
+    </div>
+
+  </div>
+
 </div>
+
+<script src="scripts/common.js"></script>
 </body>
 </html>

@@ -18,9 +18,9 @@
   },
   "homepage": "https://github.com/samglendon/mf.messenger.praktikum.yandex#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "nodemon": "2.0.6"
   }
 }

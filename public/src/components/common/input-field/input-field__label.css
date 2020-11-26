@@ -5,7 +5,7 @@
   font-size: 12px;
   line-height: 15px;
 
-  color: var(--color-gray);
+  color: var(--color-text-first);
 }
 
 .input-field__label_add {
@@ -16,4 +16,15 @@
   width: 105px;
 
   cursor: pointer;
+}
+
+.input-field__label_attach {
+  margin-left: 15px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  white-space: nowrap;
+
+  color: var(--color-main-primary);
 }

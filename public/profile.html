@@ -86,59 +86,59 @@
         </div>
         <p class="profile__name elem-covered">Иван</p>
 
-        <form class="profile__edit elem-hidden" name="edit" novalidate>
-          <ul class="profile__list">
-            <li class="profile__item">
+        <form class="profile__edit" name="edit" novalidate>
+          <div class="profile__list">
+            <div class="profile__item">
               <p class="profile__item-name">Почта</p>
               <p class="profile__item-value elem-hidden">pochta@yandex.ru</p>
               <input class="profile__input profile__input_email"
                      type="email" name="email"
                      value="pochta@yandex.ru"
                      required>
-            </li>
-            <li class="profile__item">
+            </div>
+            <div class="profile__item">
               <p class="profile__item-name">Логин</p>
               <p class="profile__item-value elem-hidden">ivanivanov</p>
               <input class="profile__input profile__input_login"
                      type="text" name="login"
                      value="ivanivanov"
                      required>
-            </li>
-            <li class="profile__item">
+            </div>
+            <div class="profile__item">
               <p class="profile__item-name">Имя</p>
               <p class="profile__item-value elem-hidden">Иван</p>
               <input class="profile__input profile__input_name"
                      type="text" name="first_name"
                      value="Иван"
                      required>
-            </li>
-            <li class="profile__item">
+            </div>
+            <div class="profile__item">
               <p class="profile__item-name">Фамилия</p>
               <p class="profile__item-value elem-hidden">Иванов</p>
               <input class="profile__input profile__input_second-name"
                      type="text" name="second-name"
                      value="Иванов">
-            </li>
-            <li class="profile__item">
+            </div>
+            <div class="profile__item">
               <p class="profile__item-name">Имя в чате</p>
               <p class="profile__item-value elem-hidden">Иван</p>
               <input class="profile__input profile__input_display_name"
                      type="text" name="display_name"
                      value="Иван">
-            </li>
-            <li class="profile__item">
+            </div>
+            <div class="profile__item">
               <p class="profile__item-name">Телефон</p>
               <p class="profile__item-value elem-hidden">+7 (909) 967 30 30</p>
               <input class="profile__input profile__input_phone"
                      type="tel" name="phone"
                      value="+7 (909) 967 30 30">
-            </li>
-          </ul>
+            </div>
+          </div>
 
           <button class="button profile__button profile__button_edit" name='btn'>Сохранить</button>
         </form>
 
-        <form class="profile__edit" name="change" novalidate>
+        <form class="profile__edit elem-hidden" name="change" novalidate>
           <ul class="profile__list profile__list_pass">
             <li class="profile__item">
               <p class="profile__item-name">Старый пароль</p>
@@ -166,15 +166,15 @@
           <button class="button profile__button profile__button_edit" name='btn'>Сохранить</button>
         </form>
 
-        <ul class="profile__list elem-hidden">
+        <ul class="profile__list">
           <li class="profile__item">
-            <p class="profile__item-name profile__item-name_change">Изменить данные</p>
+            <button class="profile__item-name profile__item-name_change">Изменить данные</button>
           </li>
           <li class="profile__item">
-            <p class="profile__item-name profile__item-name_change">Изменить пароль</p>
+            <button class="profile__item-name profile__item-name_change">Изменить пароль</button>
           </li>
           <li class="profile__item">
-            <p class="profile__item-name profile__item-name_exit">Выйти</p>
+            <button class="profile__item-name profile__item-name_exit">Выйти</button>
           </li>
         </ul>
 
@@ -183,5 +183,7 @@
   </div>
 
 </div>
+
+<script src="scripts/common.js"></script>
 </body>
 </html>

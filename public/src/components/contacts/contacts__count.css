@@ -4,4 +4,6 @@
   line-height: 12px;
 
   color: var(--color-main-white);
+  /*сбрасываем дефолтный желтый фон у mark*/
+  background-color: transparent;
 }

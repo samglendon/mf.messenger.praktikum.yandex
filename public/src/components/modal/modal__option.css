@@ -1,4 +1,16 @@
 .modal__option {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+
+  display: block;
+  margin: 16px auto 0;
+
   color: var(--color-blue);
+  background-color: transparent;
+  border: none;
+  outline: none;
   cursor: pointer;
 }

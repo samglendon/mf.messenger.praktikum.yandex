@@ -4,6 +4,10 @@
   line-height: 54px;
   cursor: pointer;
   transition: all .3s linear;
+
+  text-decoration: none;
+  display: block;
+  color: var(--color-text-first);
 }
 
 .contacts__profile-button:hover {
