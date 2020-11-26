@@ -9,13 +9,16 @@
   <meta name="description" content="Удобный мессенджер для всех желающих">
   <meta name="author" content="Михаил Кузнецов, RGlen">
   <title>Аутентификация</title>
+
   <link rel="stylesheet" href="src/pages/auth/style.css">
+
 </head>
 
 <body>
 <div class="root">
 
   <div class="overlay"></div>
+
 
   <div class="modal">
 
@@ -44,6 +47,7 @@
     <div class="modal__content modal__content-registration">
       <h3 class="modal__title">Регистрация</h3>
       <form class="modal__form" name="registration" novalidate>
+
         <div class="input-field">
           <label for="email-reg" class="input-field__label">Email</label>
           <input id="email-reg" type="text" name="email" class="input-field__input input-field__input_type_email"
@@ -73,6 +77,7 @@
           <input id="tel-reg" type="tel" name="phone" class="input-field__input input-field__input_type_phone"
                  placeholder="+7-(999)-999-99-99" required>
           <span class="input-field__error-message input-field_error-message_phone elem-hidden"></span>
+
         </div>
         <div class="input-field">
           <label for="password-reg" class="input-field__label">Пароль</label>
@@ -88,6 +93,7 @@
                  placeholder="Повторите пароль еще раз" required>
           <span class="input-field__error-message input-field__error-message_password-again elem-hidden"></span>
         </div>
+
 <!--        <button class="button modal__button modal__button_registration" name='btn' disabled>Зарегистрироваться</button>-->
         <button class="button modal__button modal__button_registration" name='btn'>Зарегистрироваться</button>
       </form>

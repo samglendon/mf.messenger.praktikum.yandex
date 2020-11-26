@@ -1,0 +1,39 @@
+@import url(auth__content.css);
+@import url(auth__title.css);
+@import url(auth__form.css);
+@import url(auth__button.css);
+@import url(auth__or.css);
+@import url(auth__option.css);
+
+
+.auth {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  width: 430px;
+  /*min-height: 380px;*/
+  background-color: var(--color-main-white);
+  border-radius: 16px;
+
+  box-sizing: border-box;
+  padding: 50px 30px 30px;
+}
+
+
+@media all and (max-width: 650px) {
+  .auth {
+    top: 56px;
+    left: 0;
+    transform: translate(0);
+    width: 100%;
+    height: calc(100vh - 56px);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    padding: 16px 5.2% 0;
+  }
+}
