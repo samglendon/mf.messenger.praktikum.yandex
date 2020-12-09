@@ -1,11 +1,17 @@
 .dialogs__button {
-  background-color: transparent;
-  cursor: pointer;
+  width: 30px;
+  height: 30px;
 
   border: none;
   outline: none;
   border-radius: 50%;
-  padding: 3px 10px;
+  box-sizing: border-box;
+
+  background-image: url("../../images/dialogControl.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .dialogs__button:hover {

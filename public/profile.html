@@ -8,7 +8,7 @@
   <meta name="keywords" content="Messenger, comfortable, for everyone">
   <meta name="description" content="Удобный мессенджер для всех желающих">
   <meta name="author" content="Михаил Кузнецов, RGlen">
-  <title>Диалоги</title>
+  <title>Профиль</title>
   <link rel="stylesheet" href="src/pages/profile/style.css">
 </head>
 
@@ -89,48 +89,48 @@
         <form class="profile__edit" name="edit" novalidate>
           <div class="profile__list">
             <div class="profile__item">
-              <p class="profile__item-name">Почта</p>
+              <label class="profile__item-name" for="email">Почта</label>
               <p class="profile__item-value elem-hidden">pochta@yandex.ru</p>
               <input class="profile__input profile__input_email"
-                     type="email" name="email"
+                     type="email" name="email" id="email"
                      value="pochta@yandex.ru"
                      required>
             </div>
             <div class="profile__item">
-              <p class="profile__item-name">Логин</p>
+              <label class="profile__item-name" for="login">Логин</label>
               <p class="profile__item-value elem-hidden">ivanivanov</p>
               <input class="profile__input profile__input_login"
-                     type="text" name="login"
+                     type="text" name="login" id="login"
                      value="ivanivanov"
                      required>
             </div>
             <div class="profile__item">
-              <p class="profile__item-name">Имя</p>
+              <label class="profile__item-name" for="first-name">Имя</label>
               <p class="profile__item-value elem-hidden">Иван</p>
               <input class="profile__input profile__input_name"
-                     type="text" name="first_name"
+                     type="text" name="first_name" id="first-name"
                      value="Иван"
                      required>
             </div>
             <div class="profile__item">
-              <p class="profile__item-name">Фамилия</p>
+              <label class="profile__item-name" for="second-name">Фамилия</label>
               <p class="profile__item-value elem-hidden">Иванов</p>
               <input class="profile__input profile__input_second-name"
-                     type="text" name="second-name"
+                     type="text" name="second-name" id="second-name"
                      value="Иванов">
             </div>
             <div class="profile__item">
-              <p class="profile__item-name">Имя в чате</p>
+              <label class="profile__item-name" for="display-name">Имя в чате</label>
               <p class="profile__item-value elem-hidden">Иван</p>
               <input class="profile__input profile__input_display_name"
-                     type="text" name="display_name"
+                     type="text" name="display_name" id="display-name"
                      value="Иван">
             </div>
             <div class="profile__item">
-              <p class="profile__item-name">Телефон</p>
+              <label class="profile__item-name" for="phone">Телефон</label>
               <p class="profile__item-value elem-hidden">+7 (909) 967 30 30</p>
               <input class="profile__input profile__input_phone"
-                     type="tel" name="phone"
+                     type="tel" name="phone" id="phone"
                      value="+7 (909) 967 30 30">
             </div>
           </div>
@@ -141,24 +141,24 @@
         <form class="profile__edit elem-hidden" name="change" novalidate>
           <ul class="profile__list profile__list_pass">
             <li class="profile__item">
-              <p class="profile__item-name">Старый пароль</p>
+              <label class="profile__item-name" for="oldPassword">Старый пароль</label>
               <input class="profile__input profile__input_old-password"
                      type="password" name="oldPassword"
-                     value="1234567"
+                     value="1234567" id="oldPassword"
                      required>
             </li>
             <li class="profile__item">
-              <p class="profile__item-name">Новый пароль</p>
+              <label class="profile__item-name" for="newPassword">Новый пароль</label>
               <input class="profile__input profile__input_login"
                      type="password" name="newPassword"
-                     value=""
+                     value="" id="newPassword"
                      required>
             </li>
             <li class="profile__item">
-              <p class="profile__item-name">Повторите новый пароль</p>
+              <label class="profile__item-name" for="repeatPassword">Повторите новый пароль</label>
               <input class="profile__input profile__input_name"
                      type="password" name="newPassword-again"
-                     value=""
+                     value="" id="repeatPassword"
                      required>
             </li>
           </ul>

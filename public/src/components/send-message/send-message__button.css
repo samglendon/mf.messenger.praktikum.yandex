@@ -1,8 +1,17 @@
 .send-message__button {
+  width: 30px;
+  height: 30px;
+
   padding: 0;
   margin: 0;
   margin-left: 10px;
   background-color: transparent;
   border: none;
   outline: none;
+
+  background-image: url("../../images/send.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
 }
