@@ -35,13 +35,13 @@
                  placeholder="Введите пароль" required>
           <span class="input-field__error-message  input-field__error-message_password"></span>
         </div>
-<!--        <button class="button modal__button modal__button_enter" name='btn' disabled>Авторизоваться</button>-->
-        <button class="button modal__button modal__button_enter" name='btn'>Авторизоваться</button>
+        <button class="button modal__button modal__button_enter" name='btn' disabled>Авторизоваться</button>
+<!--        <button class="button modal__button modal__button_enter" name='btn'>Авторизоваться</button>-->
       </form>
       <button class="modal__option modal__option_registration">Нет аккаунта?</button>
     </div>
 
-    <div class="modal__content modal__content-registration">
+    <div class="modal__content modal__content-registration elem-hidden">
       <h3 class="modal__title">Регистрация</h3>
       <form class="modal__form" name="registration" novalidate>
         <div class="input-field">
@@ -98,6 +98,9 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/handlebars@4.0.5/dist/handlebars.min.js"></script>
 <script src="scripts/common.js"></script>
+<script src="scripts/templates/register.tmpl.js"></script>
+<script src="scripts/index.js"></script>
 </body>
 </html>
