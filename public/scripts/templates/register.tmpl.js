@@ -1,5 +1,6 @@
-// export const registerTmpl = `
-const registerTmpl = `
+// не понятно зачем вообще нужен Handlebars, можно обойтись литеральным шаблоном и вставкой через ${}
+// const registerTmpl = `
+export const registerTmpl = `
     <div class="modal__content modal__content-enter">
       <h3 class="modal__title">{{modalTitle}}</h3>
       <form class="modal__form" name="{{formName}}" novalidate>

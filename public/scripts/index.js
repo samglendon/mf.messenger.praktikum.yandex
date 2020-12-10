@@ -1,6 +1,4 @@
-
-
-// import {registerTmpl} from "./templates/register.tmpl.js";
+import {registerTmpl} from "./templates/templates.js";
 
 const template = Handlebars.compile(registerTmpl);
 
@@ -50,12 +48,10 @@ const context = {
 
 const registerForm = template(context);
 
-console.log(typeof registerForm)
 
-parser = new DOMParser();
-registerFormHTMLDoc = parser.parseFromString(registerForm, "text/html");
-console.log(registerFormHTMLDoc.body.querySelector('div'))
-console.log(registerFormHTMLDoc.body.firstElementChild)
+const parser = new DOMParser();
+const registerFormHTMLDoc = parser.parseFromString(registerForm, "text/html");
+
 
 document.querySelector('.modal').appendChild(registerFormHTMLDoc.body.firstElementChild);
 // document.querySelector('.modal').innerHTML = registerForm;
