@@ -8,6 +8,9 @@ export class Block {
     FLOW_RENDER: "flow:render"
   };
   _meta = null;
+  _neededUpdateCount = 0;
+  _currentUpdateCount = 0;
+  _needUpdate = false;
 
   /** JSDoc
    * @param {string} tagName
@@ -31,8 +34,6 @@ export class Block {
   }
 
   _element = null;
-
-  // _elementFragment = null;
 
   get element() {
     return this._element;
@@ -68,8 +69,13 @@ export class Block {
 
   _componentDidUpdate(oldProps, newProps) {
     const response = this.componentDidUpdate(oldProps, newProps);
-    if (response) {
+
+    const needUpdateCondition = (response && this._neededUpdateCount === this._currentUpdateCount && this._needUpdate);
+    if (needUpdateCondition) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+      this._neededUpdateCount = 0;
+      this._currentUpdateCount = 0;
+      this._needUpdate = false;
     }
   }
 
@@ -83,25 +89,22 @@ export class Block {
       return;
     }
 
+    this._neededUpdateCount = Object.keys(nextProps).length;
     Object.assign(this.props, nextProps);
   };
 
   _render() {
-    console.log("this._element до вставки ");
-    console.log(this._element)
-
     const tmplFromRender = this.render();
 
     const templator = Handlebars.compile(tmplFromRender);
     const blockTemplate = templator(this.props);
+
+    // первый вариант
     const parser = new DOMParser();
-    // debugger
     const HTMLBlockParsed = parser.parseFromString(blockTemplate, "text/html");
     const HTMLBlockAll = HTMLBlockParsed.body.firstElementChild;
-    console.log('HTMLBlockAll');
-    console.log(HTMLBlockAll);
-
-
+    // console.log('HTMLBlockAll');
+    // console.log(HTMLBlockAll);
     if (!this._element) {
       this._element = HTMLBlockAll;
     } else {
@@ -109,21 +112,20 @@ export class Block {
       [].forEach.call(HTMLBlockAll.childNodes, function (elem) {
         HTMLBlockInner.appendChild(elem);
       });
-
       const attr = HTMLBlockAll.attributes;
-      console.log(attr)
-      // debugger
-      // Array.from(attr).forEach(([name, value]) => {
-      //   this._element.setAttribute(name, value);
-      // })
-
-
+      Array.from(attr).forEach(({name, value}) => {
+        this._element.setAttribute(name, value);
+      })
       this._element.innerHTML = '';
       this._element.appendChild(HTMLBlockInner);
+
+      // запасной второй вариант
+      // this._element.outerHTML = blockTemplate;
+
     }
-    // document.firstElementChild
-    console.log("this._element после вставки ")
-    console.log(this._element)
+
+    // console.log("this._element после вставки ")
+    // console.log(this._element)
   }
 
   // Может переопределять пользователь, необязательно трогать
@@ -139,13 +141,16 @@ export class Block {
     // Можно и так передать this
     // Такой способ больше не применяется с приходом ES6+
     const self = this;
-  // debugger
+
     return new Proxy(props, {
-      set(target, prop, val, receiver) {
-        debugger
-        // TODO: блок должен одновляться только одни раз при получении новых пропсов
-        target[prop] = val;
-        self.eventBus().emit(Block.EVENTS.FLOW_CDU, self.props[prop], target[props]);
+      set: (target, prop, val, receiver) => {
+        const oldValue = target[prop];
+        if (oldValue !== val) {
+          target[prop] = val;
+          this._needUpdate = true;
+        }
+        this._currentUpdateCount++;
+        this.eventBus().emit(Block.EVENTS.FLOW_CDU);
         return true;
       },
       deleteProperty(target, prop) {
