@@ -1,8 +1,9 @@
-import {registerTmpl} from "./templates/templates.js";
+import {render} from "./helpers/renderDom.js";
+import {Button} from "./components/common/Button/Button.js";
+import {AuthForm} from "./components/AuthForm/AuthForm.js";
 
-const template = Handlebars.compile(registerTmpl);
 
-const context = {
+const contextLogin = {
   modalTitle: 'Вход',
   formName: 'enter',
   fields: [
@@ -15,7 +16,7 @@ const context = {
         id: 'login',
         type: 'text',
         name: 'login',
-        className: 'input-field__input_type_email',
+        className: 'input-field__input_type_login',
         placeholder: 'Введите логин',
       },
       classNameError: 'input-field__error-message_login'
@@ -35,23 +36,18 @@ const context = {
       classNameError: 'input-field__error-message_password'
     },
   ],
-  buttonForm: {
-    className: 'modal__button_enter',
-    name: 'btn',
-    text: 'Авторизоваться',
-  },
+  button: new Button({
+    className: 'modal__button modal__button_enter',
+    text: 'Авторизоваться'
+  }).getStringElement(),
   buttonOption: {
     className: 'modal__option_registration',
     text: 'Нет аккаунта?',
   }
 };
 
-const registerForm = template(context);
 
 
-const parser = new DOMParser();
-const registerFormHTMLDoc = parser.parseFromString(registerForm, "text/html");
+const LoginForm = new AuthForm(contextLogin);
 
-
-document.querySelector('.modal').appendChild(registerFormHTMLDoc.body.firstElementChild);
-// document.querySelector('.modal').innerHTML = registerForm;
+render(document, ".modal", LoginForm);

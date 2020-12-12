@@ -1,1 +1,1 @@
-export {registerTmpl} from './register.tmpl.js';
+export {authTmpl} from './auth.tmpl.js';

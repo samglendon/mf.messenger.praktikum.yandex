@@ -1,14 +1,9 @@
 import {Button} from "./Button.js"
-
-
-function render(from, query, block) {
-  const root = from.querySelector(query);
-  root.appendChild(block.getContent());
-  return root;
-}
+import {render} from "../../../helpers/renderDom.js";
 
 const button = new Button({
   text: 'Click me',
+  clickHandler: ''
 });
 
 // app — это id дива в корне DOM

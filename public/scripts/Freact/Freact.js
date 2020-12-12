@@ -1,6 +1,6 @@
 import {EventBus} from "./Event-bus.js";
 
-export class Block {
+export class Freact {
   static EVENTS = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",
@@ -8,9 +8,18 @@ export class Block {
     FLOW_RENDER: "flow:render"
   };
   _meta = null;
+  _element = null;
   _neededUpdateCount = 0;
   _currentUpdateCount = 0;
   _needUpdate = false;
+  _display = {
+    block: 'block',
+    flex: 'flex',
+    grid: 'grid',
+    inline: 'inline',
+    inlineBlock: 'inline-block'
+  };
+  _stringElement = '';
 
   /** JSDoc
    * @param {string} tagName
@@ -18,10 +27,11 @@ export class Block {
    *
    * @returns {void}
    */
-  constructor(props = {}, tagName = "div") {
+  // constructor(props = {}, tagName = "div") {
+  constructor(props = {}) {
     const eventBus = new EventBus();
     this._meta = {
-      tagName,
+      // tagName,
       props
     };
 
@@ -30,37 +40,43 @@ export class Block {
     this.eventBus = () => eventBus;
 
     this._registerEvents(eventBus);
-    eventBus.emit(Block.EVENTS.INIT);
+    eventBus.emit(Freact.EVENTS.INIT);
   }
 
-  _element = null;
 
   get element() {
     return this._element;
   }
+  get stringElement() {
+    // debugger
+    // return `${this._element}`;
+    return this._stringElement;
+  }
 
   _registerEvents(eventBus) {
-    eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
-    eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
-    eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
-    eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
+    eventBus.on(Freact.EVENTS.INIT, this.init.bind(this));
+    eventBus.on(Freact.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
+    eventBus.on(Freact.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
+    eventBus.on(Freact.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  _createResources() {
-    const {tagName} = this._meta;
-    // this._element = this._createDocumentElement(tagName);
-    // this._element = document.createDocumentFragment();
-    // debugger
-  }
+  // _createResources() {
+  //   const {tagName} = this._meta;
+  //   // this._element = this._createDocumentElement(tagName);
+  //   // this._element = document.createDocumentFragment();
+  //   // debugger
+  // }
 
   init() {
-    this._createResources();
-    this.eventBus().emit(Block.EVENTS.FLOW_CDM);
+    // this._createResources();
+    this.eventBus().emit(Freact.EVENTS.FLOW_CDM);
   }
 
   _componentDidMount() {
-    this.componentDidMount();
-    this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+    this.eventBus().emit(Freact.EVENTS.FLOW_RENDER);
+    // debugger
+    setTimeout(this.componentDidMount.bind(this), 0)
+    // this.componentDidMount();
   }
 
   // Может переопределять пользователь, необязательно трогать
@@ -72,7 +88,7 @@ export class Block {
 
     const needUpdateCondition = (response && this._neededUpdateCount === this._currentUpdateCount && this._needUpdate);
     if (needUpdateCondition) {
-      this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+      this.eventBus().emit(Freact.EVENTS.FLOW_RENDER);
       this._neededUpdateCount = 0;
       this._currentUpdateCount = 0;
       this._needUpdate = false;
@@ -88,16 +104,17 @@ export class Block {
     if (!nextProps) {
       return;
     }
-
     this._neededUpdateCount = Object.keys(nextProps).length;
     Object.assign(this.props, nextProps);
   };
 
   _render() {
     const tmplFromRender = this.render();
-
+// debugger
     const templator = Handlebars.compile(tmplFromRender);
     const blockTemplate = templator(this.props);
+
+    this._stringElement = blockTemplate;
 
     // первый вариант
     const parser = new DOMParser();
@@ -115,7 +132,7 @@ export class Block {
       const attr = HTMLBlockAll.attributes;
       Array.from(attr).forEach(({name, value}) => {
         this._element.setAttribute(name, value);
-      })
+      });
       this._element.innerHTML = '';
       this._element.appendChild(HTMLBlockInner);
 
@@ -134,7 +151,11 @@ export class Block {
 
 
   getContent() {
+    // debugger
     return this.element;
+  }
+  getStringElement() {
+    return this.stringElement;
   }
 
   _makePropsProxy = (props) => {
@@ -145,12 +166,18 @@ export class Block {
     return new Proxy(props, {
       set: (target, prop, val, receiver) => {
         const oldValue = target[prop];
+        if (prop === 'button') {
+          target.__proto__.toString = function () {
+            return this.__proto__.valueOf();
+          }
+        }
+        debugger
         if (oldValue !== val) {
           target[prop] = val;
           this._needUpdate = true;
         }
         this._currentUpdateCount++;
-        this.eventBus().emit(Block.EVENTS.FLOW_CDU);
+        this.eventBus().emit(Freact.EVENTS.FLOW_CDU);
         return true;
       },
       deleteProperty(target, prop) {
@@ -167,8 +194,8 @@ export class Block {
   //   // return this._elementFragment;
   // }
 
-  show() {
-    this.getContent().style.display = "block";
+  show(display) {
+    this.getContent().style.display = `${this._display[display]}`;
   }
 
   hide() {
