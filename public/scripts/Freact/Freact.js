@@ -8,7 +8,6 @@ export class Freact {
     FLOW_RENDER: "flow:render"
   };
   _meta = null;
-  _element = null;
   _neededUpdateCount = 0;
   _currentUpdateCount = 0;
   _needUpdate = false;
@@ -19,7 +18,6 @@ export class Freact {
     inline: 'inline',
     inlineBlock: 'inline-block'
   };
-  _stringElement = '';
 
   /** JSDoc
    * @param {string} tagName
@@ -43,10 +41,14 @@ export class Freact {
     eventBus.emit(Freact.EVENTS.INIT);
   }
 
+  _element = null;
 
   get element() {
     return this._element;
   }
+
+  _stringElement = '';
+
   get stringElement() {
     // debugger
     // return `${this._element}`;
@@ -74,8 +76,7 @@ export class Freact {
 
   _componentDidMount() {
     this.eventBus().emit(Freact.EVENTS.FLOW_RENDER);
-    // debugger
-    setTimeout(this.componentDidMount.bind(this), 0)
+    setTimeout(() => {this.componentDidMount.call(this, this.props)}, 0)
     // this.componentDidMount();
   }
 
@@ -109,32 +110,43 @@ export class Freact {
   };
 
   _render() {
+    console.log('this.props.edit до парсинга');
+    console.log(this.props.edit);
     const tmplFromRender = this.render();
-// debugger
-    const templator = Handlebars.compile(tmplFromRender);
-    const blockTemplate = templator(this.props);
+    const template = Handlebars.compile(tmplFromRender);
+    const blockTemplate = template(this.props);
 
     this._stringElement = blockTemplate;
 
     // первый вариант
     const parser = new DOMParser();
-    const HTMLBlockParsed = parser.parseFromString(blockTemplate, "text/html");
-    const HTMLBlockAll = HTMLBlockParsed.body.firstElementChild;
+    const htmlBlockParsed = parser.parseFromString(blockTemplate, "text/html");
+    const htmlBlock = htmlBlockParsed.body.firstElementChild;
     // console.log('HTMLBlockAll');
     // console.log(HTMLBlockAll);
+    // console.log('this.props.edit после парсинга');
+    // console.log(this.props.edit);
+debugger
     if (!this._element) {
-      this._element = HTMLBlockAll;
+      this._element = htmlBlock;
     } else {
-      const HTMLBlockInner = document.createDocumentFragment();
-      [].forEach.call(HTMLBlockAll.childNodes, function (elem) {
-        HTMLBlockInner.appendChild(elem);
+      const currentBlock = document.querySelector(`.${this._element.classList[this._element.classList.length - 1]}`);
+      const htmlBlockInner = document.createDocumentFragment();
+      const children = Array.from(htmlBlock.childNodes);
+      children.forEach((elem) => {
+        htmlBlockInner.appendChild(elem);
       });
-      const attr = HTMLBlockAll.attributes;
+      // console.log('HTMLBlockInner')
+      // console.dir(HTMLBlockInner)
+      const attr = htmlBlock.attributes;
       Array.from(attr).forEach(({name, value}) => {
-        this._element.setAttribute(name, value);
+        currentBlock.setAttribute(name, value);
+        // this._element.setAttribute(name, value);
       });
-      this._element.innerHTML = '';
-      this._element.appendChild(HTMLBlockInner);
+      currentBlock.innerHTML = '';
+      currentBlock.appendChild(htmlBlockInner);
+      // this._element.innerHTML = '';
+      // this._element.appendChild(HTMLBlockInner);
 
       // запасной второй вариант
       // this._element.outerHTML = blockTemplate;
@@ -154,27 +166,23 @@ export class Freact {
     // debugger
     return this.element;
   }
+
   getStringElement() {
     return this.stringElement;
   }
 
   _makePropsProxy = (props) => {
-    // Можно и так передать this
-    // Такой способ больше не применяется с приходом ES6+
-    const self = this;
-
     return new Proxy(props, {
+      get(target, prop) {
+        const value = target[prop];
+        return typeof value === "function" ? value.bind(target) : value;
+      },
       set: (target, prop, val, receiver) => {
-        const oldValue = target[prop];
-        if (prop === 'button') {
-          target.__proto__.toString = function () {
-            return this.__proto__.valueOf();
-          }
-        }
         debugger
+        const oldValue = target[prop];
         if (oldValue !== val) {
-          target[prop] = val;
           this._needUpdate = true;
+          target[prop] = val;
         }
         this._currentUpdateCount++;
         this.eventBus().emit(Freact.EVENTS.FLOW_CDU);

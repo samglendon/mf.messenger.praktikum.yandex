@@ -1,3 +1,10 @@
-.profile__edit {
+.profile__form {
   width: 100%;
+}
+.profile__form_edit .profile__item-value {
+  display: none;
+}
+
+.profile__form_edit .profile__input {
+  display: block;
 }

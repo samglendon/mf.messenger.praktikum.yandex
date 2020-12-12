@@ -9,8 +9,7 @@
   margin: 16px auto 0;
 
   color: var(--color-blue);
-  background-color: transparent;
-  border: none;
-  outline: none;
+  text-decoration: none;
+  text-align: center;
   cursor: pointer;
 }

@@ -1,4 +1,4 @@
-import {validateEmail, validatePassword, errorMessages} from './helpers/validations.js';
+import {validateEmail, validatePassword, errorMessages} from './validations.js';
 
 
 export class FormValidation {
@@ -48,7 +48,6 @@ export class FormValidation {
     // console.dir(elem);
     // if (elem.validity.typeMismatch) {
     if (elem.validity.valueMissing) {
-      debugger
       return errorElem.textContent = errorMessages.must;
     }
     if (elem.name === 'email' && !validateEmail(elem.value)) {

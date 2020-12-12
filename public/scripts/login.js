@@ -4,48 +4,40 @@ import {AuthForm} from "./components/AuthForm/AuthForm.js";
 
 
 const contextLogin = {
+  className: 'modal__content-enter',
   modalTitle: 'Вход',
   formName: 'enter',
   fields: [
     {
-      label: {
-        for: 'login',
-        text: 'Логин',
-      },
+      labelText: 'Логин',
       input: {
         id: 'login',
         type: 'text',
         name: 'login',
-        className: 'input-field__input_type_login',
         placeholder: 'Введите логин',
       },
-      classNameError: 'input-field__error-message_login'
     },
     {
-      label: {
-        for: 'password',
-        text: 'Пароль',
-      },
+      labelText: 'Пароль',
       input: {
         id: 'password',
         type: 'password',
         name: 'password',
-        className: 'input-field__input_type_password',
         placeholder: 'Введите пароль',
       },
-      classNameError: 'input-field__error-message_password'
     },
   ],
   button: new Button({
     className: 'modal__button modal__button_enter',
-    text: 'Авторизоваться'
+    text: 'Авторизоваться',
+    disabled: true
   }).getStringElement(),
-  buttonOption: {
-    className: 'modal__option_registration',
+  linkOption: {
+    className: 'registration',
     text: 'Нет аккаунта?',
+    href: 'register.html',
   }
 };
-
 
 
 const LoginForm = new AuthForm(contextLogin);
