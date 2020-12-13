@@ -1,4 +1,5 @@
 import {EventBus} from "./Event-bus.js";
+import {EventsCollection} from "./EventsCollection.js";
 
 export class Freact {
   static EVENTS = {
@@ -28,6 +29,8 @@ export class Freact {
   // constructor(props = {}, tagName = "div") {
   constructor(props = {}) {
     const eventBus = new EventBus();
+    const eventsCollection = new EventsCollection();
+
     this._meta = {
       // tagName,
       props
@@ -36,6 +39,7 @@ export class Freact {
     this.props = this._makePropsProxy(props);
 
     this.eventBus = () => eventBus;
+    this.eventsCollection = () => eventsCollection;
 
     this._registerEvents(eventBus);
     eventBus.emit(Freact.EVENTS.INIT);
@@ -50,8 +54,6 @@ export class Freact {
   _stringElement = '';
 
   get stringElement() {
-    // debugger
-    // return `${this._element}`;
     return this._stringElement;
   }
 
@@ -74,9 +76,15 @@ export class Freact {
     this.eventBus().emit(Freact.EVENTS.FLOW_CDM);
   }
 
+
+  setListener(elemSelector, eventName, callback) {
+    this.eventsCollection().set(elemSelector, eventName, callback);
+  }
+
   _componentDidMount() {
     this.eventBus().emit(Freact.EVENTS.FLOW_RENDER);
     setTimeout(() => {this.componentDidMount.call(this, this.props)}, 0)
+    // setTimeout(() => {this._saveListeners()}, 0)
     // this.componentDidMount();
   }
 
@@ -87,12 +95,17 @@ export class Freact {
   _componentDidUpdate(oldProps, newProps) {
     const response = this.componentDidUpdate(oldProps, newProps);
 
-    const needUpdateCondition = (response && this._neededUpdateCount === this._currentUpdateCount && this._needUpdate);
+    let needUpdateCondition = (response && this._neededUpdateCount === this._currentUpdateCount && this._needUpdate);
     if (needUpdateCondition) {
       this.eventBus().emit(Freact.EVENTS.FLOW_RENDER);
       this._neededUpdateCount = 0;
       this._currentUpdateCount = 0;
       this._needUpdate = false;
+      needUpdateCondition = false;
+
+      // нужно опять навесить слушатели
+      this.eventsCollection().resetEvents();
+
     }
   }
 
@@ -105,13 +118,12 @@ export class Freact {
     if (!nextProps) {
       return;
     }
+// debugger
     this._neededUpdateCount = Object.keys(nextProps).length;
     Object.assign(this.props, nextProps);
   };
 
   _render() {
-    console.log('this.props.edit до парсинга');
-    console.log(this.props.edit);
     const tmplFromRender = this.render();
     const template = Handlebars.compile(tmplFromRender);
     const blockTemplate = template(this.props);
@@ -122,39 +134,35 @@ export class Freact {
     const parser = new DOMParser();
     const htmlBlockParsed = parser.parseFromString(blockTemplate, "text/html");
     const htmlBlock = htmlBlockParsed.body.firstElementChild;
-    // console.log('HTMLBlockAll');
-    // console.log(HTMLBlockAll);
-    // console.log('this.props.edit после парсинга');
-    // console.log(this.props.edit);
-debugger
+
     if (!this._element) {
       this._element = htmlBlock;
     } else {
-      const currentBlock = document.querySelector(`.${this._element.classList[this._element.classList.length - 1]}`);
+      const searchSelector = `.${this._element.classList[this._element.classList.length - 1]}`;
+      const searchValue = this._element.id ? `#${this._element.id}`: searchSelector;
+      // debugger
+
+      this.currentBlock = document.querySelector(searchValue);
+      if (!this.currentBlock) this.currentBlock = htmlBlock;
+
       const htmlBlockInner = document.createDocumentFragment();
       const children = Array.from(htmlBlock.childNodes);
       children.forEach((elem) => {
         htmlBlockInner.appendChild(elem);
       });
-      // console.log('HTMLBlockInner')
-      // console.dir(HTMLBlockInner)
+
       const attr = htmlBlock.attributes;
+      // debugger
       Array.from(attr).forEach(({name, value}) => {
-        currentBlock.setAttribute(name, value);
-        // this._element.setAttribute(name, value);
+        this.currentBlock.setAttribute(name, value);
       });
-      currentBlock.innerHTML = '';
-      currentBlock.appendChild(htmlBlockInner);
-      // this._element.innerHTML = '';
-      // this._element.appendChild(HTMLBlockInner);
+      this.currentBlock.innerHTML = '';
+      this.currentBlock.appendChild(htmlBlockInner);
+
 
       // запасной второй вариант
       // this._element.outerHTML = blockTemplate;
-
     }
-
-    // console.log("this._element после вставки ")
-    // console.log(this._element)
   }
 
   // Может переопределять пользователь, необязательно трогать
@@ -178,7 +186,9 @@ debugger
         return typeof value === "function" ? value.bind(target) : value;
       },
       set: (target, prop, val, receiver) => {
-        debugger
+        if (prop === 'setActive') {
+          target.Options[0]
+        }
         const oldValue = target[prop];
         if (oldValue !== val) {
           this._needUpdate = true;

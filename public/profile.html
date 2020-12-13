@@ -13,62 +13,7 @@
 </head>
 
 <body>
-<div class="root">
-
-  <div class="overlay overlay_modal elem-hidden"></div>
-
-  <div class="modal modal_popup elem-hidden">
-    <img src="src/images/close.svg" alt="закрыть" class="modal__close">
-
-<!--    стоит использовать разные модальные окна, или лучше сделать один универсальный с помощью скрипта?-->
-    <div class="modal__content modal__content_upload-file elem-hidden">
-      <h3 class="modal__title modal__title_popup">Загрузите файл</h3>
-      <form class="modal__form" name="add-file" novalidate>
-        <div class="input-field">
-          <label for="add-file" class="input-field__label input-field__label_add">Выбрать файл на компьютере</label>
-          <input id="add-file" type="file" name="file"
-                 class="input-field__input input-field__input_type_add-file elem-hidden"
-                 placeholder="" required>
-          <span class="input-field__error-message input-field_error-message_add elem-hidden"></span>
-        </div>
-        <button class="button modal__button modal__button_popup modal__button_add" name='btn' disabled>Поменять</button>
-      </form>
-    </div>
-
-    <div class="modal__content modal__content_error elem-hidden">
-      <h3 class="modal__title modal__title_popup modal__title_error">Ошибка, попробуйте ещё раз</h3>
-      <form class="modal__form" name="add-file" novalidate>
-        <div class="input-field">
-          <label for="add-file-again" class="input-field__label input-field__label_add">Выбрать файл на компьютере</label>
-          <input id="add-file-again" type="file" name="file"
-                 class="input-field__input input-field__input_type_add-file elem-hidden"
-                 placeholder="" required>
-          <span class="input-field__error-message input-field_error-message_add elem-hidden"></span>
-        </div>
-        <button class="button modal__button modal__button_popup modal__button_add" name='btn' disabled>Поменять</button>
-      </form>
-    </div>
-
-    <div class="modal__content modal__content_success elem-hidden">
-      <h3 class="modal__title modal__title_popup">Файл загружен</h3>
-      <form class="modal__form" name="success" novalidate>
-        <div class="input-field">
-          <p  class="input-field__label input-field__label_success">pic.jpg</p>
-<!--          <label for="success" class="input-field__label input-field__label_add">pic.jpg</label>-->
-<!--          <input id="success" type="file" name="file"-->
-<!--                 class="input-field__input input-field__input_type_add-file elem-hidden"-->
-<!--                 placeholder="Введите логин" required>-->
-          <span class="input-field__error-message input-field_error-message_add elem-hidden"></span>
-        </div>
-        <button class="button modal__button modal__button_popup modal__button_add" name='btn'>Поменять</button>
-      </form>
-    </div>
-
-
-  </div>
-
-
-</div>
+<div class="root"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/handlebars@4.0.5/dist/handlebars.min.js"></script>
 <script type="module" src="scripts/profile.js"></script>

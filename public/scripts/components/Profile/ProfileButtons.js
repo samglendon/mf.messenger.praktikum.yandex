@@ -1,31 +1,53 @@
 import {Freact} from "../../Freact/Freact.js";
+import {ProfileState} from "../../Freact/ProfileState.js";
+import {observe} from "../../helpers/observe.js";
+
+
+const contextProfileButtons = {
+  buttons: [
+    {
+      className: 'change',
+      text: 'Изменить данные',
+      id: 'changeData'
+    },
+    {
+      className: 'change',
+      text: 'Изменить пароль',
+      id: 'changePassword'
+    },
+    {
+      className: 'exit',
+      text: 'Выйти',
+      id: 'exit'
+    },
+  ]
+};
+
 
 export class ProfileButtons extends Freact {
-  constructor(props) {
+  constructor(props = contextProfileButtons) {
     super(props);
   }
 
   componentDidMount(oldProps) {
-    // debugger
+    observe.call(this, ProfileState, 'edit');
 
-    // const validateAuthForm = new FormValidation(form, 'input-field', 'input-field__error-message');
-    // Array.from(this.element.querySelectorAll('.profile__item-name')).forEach((button, ind) => {
-    //
-    //   button.addEventListener('click', this.props.buttons[ind].clickHandler)
-    // });
-    // if (oldProps.clickHandler) {
-    //   debugger
-    //   this.element.addEventListener('click', oldProps.clickHandler);
-    // }
-    console.log(this.props.buttons)
+    this.props.buttons.forEach((button, ind) => {
+      document.getElementById(button.id).addEventListener('click', () => {
+        if (ind === 0) ProfileState.edit.value = !ProfileState.edit.value;
+        if (ind === 1) ProfileState.shownOverlay.value = !ProfileState.shownOverlay.value;
+      })
+    })
+
   }
+
 
   render() {
     return `
-      <ul class="profile__list">
+      <ul id="proButt" class="profile__list">
         {{#each buttons}}
         <li class="profile__item">
-          <button class="profile__item-name profile__item-name_{{this.className}}">{{this.text}}</button>
+          <button id="{{this.id}}" class="profile__item-name profile__item-name_{{this.className}}">{{this.text}}</button>
         </li>
         {{/each}}
       </ul>
