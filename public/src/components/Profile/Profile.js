@@ -36,7 +36,7 @@ export class Profile extends Freact {
     return `
       <div id="pfoPage" class="profile-page">
 
-        <a class="button-back" href="./dialogs.html">
+        <a class="button-back" href="./index.html">
           <div class="button-back__inner"></div>
         </a>
 

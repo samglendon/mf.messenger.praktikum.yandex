@@ -19,7 +19,7 @@ export class ErrorPage extends Freact {
       <main class="error-page">
         <h1 class="error-page__title">{{title}}</h1>
         <h2 class="error-page__description">{{description}}</h2>
-        <a href="./dialogs.html" class="error-page__link">Назад к чатам</a>
+        <a href="./index.html" class="error-page__link">Назад к чатам</a>
       </main>
     `;
   }
