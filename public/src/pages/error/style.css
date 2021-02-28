@@ -1,10 +1,7 @@
-@import url(../../vendor/normalize.css);
-@import url(../../vendor/common.css);
+@import url(../../assets/vendor/normalize.css);
+@import url(../../assets/vendor/common.css);
 
-@import url(../../componentsCss/root/root.css);
 
-@import url(../../componentsCss/error-page/error-page.css);
+@import url(../../components/ErrorPage/ErrorPage.css);
 
-@import url(../../componentsCss/common/elem-hidden.css);
-@import url(../../componentsCss/common/elem-covered.css);
 

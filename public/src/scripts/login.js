@@ -1,6 +1,6 @@
 import {render} from "./utils/renderDom.js";
-import {Button} from "./components/common/Button/Button.js";
-import {AuthForm} from "./components/AuthForm/AuthForm.js";
+import {Button} from "../components/common/Button/Button.js";
+import {ModalForm} from "../components/common/ModalForm/ModalForm.js";
 
 
 const contextLogin = {
@@ -40,7 +40,5 @@ const contextLogin = {
 };
 
 
-const LoginForm = new AuthForm(contextLogin);
-console.log(Object.keys(LoginForm))
 
-render(document, ".modal", LoginForm);
+render(document, ".modal", new ModalForm(contextLogin));
