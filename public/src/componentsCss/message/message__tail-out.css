@@ -5,8 +5,11 @@
   display: block;
   width: 8px;
   height: 13px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: contain;
+  background-image: url("../../images/tail_out.svg");
 }
 
-.message__tail-out path:last-of-type {
-  fill: var(--outgoing-background)
-}

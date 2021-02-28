@@ -1,10 +1,14 @@
 .message__status {
+  width: 16px;
+  height: 15px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: contain;
 }
 
 .message__status_checked {
-  color: var(--icon-ack);
+  background-image: url("../../images/dblChecked.svg");
 }
 
-.message__status_checked path:last-of-type {
-  fill: var(--icon-ack);
-}

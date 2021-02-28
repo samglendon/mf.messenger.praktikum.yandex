@@ -15,332 +15,46 @@
 <body>
 <div class="root">
 
-  <div class="dialogs-page">
 
-    <aside class="contacts">
-      <a class="contacts__profile-button" href="./profile.html">Профиль ></a>
-      <form class="contacts__search-container">
-        <input class="search contacts__search" type="text" name="search"
-               placeholder="   Поиск">
-      </form>
+<!--  <div class="overlay overlay_modal elem-hidden"></div>-->
 
-      <ul class="contacts__list">
+<!--  <div class="modal modal_popup elem-hidden">-->
+<!--    <img src="src/images/close.svg" alt="закрыть" class="modal__close">-->
 
-        <li class="contacts__item active">
-          <div class="contacts__item-wrapper">
-            <img class="contacts__ava" src="./src/images/noavatar.png" alt="фото">
-            <div class="contacts__content">
-              <h2 class="contacts__name">Андрей</h2>
-              <p class="contacts__last-message">Изображение</p>
-            </div>
-            <div class="contacts__info">
-              <p class="contacts__time">11:30</p>
-              <p class="contacts__new-messages">
-                <mark class="contacts__count">3</mark>
-              </p>
-            </div>
-          </div>
-        </li>
-        <li class="contacts__item">
-          <div class="contacts__item-wrapper">
-            <img class="contacts__ava" src="./src/images/noavatar.png" alt="фото">
-            <div class="contacts__content">
-              <h2 class="contacts__name">Киноклуб</h2>
-              <p class="contacts__last-message"><span class="contacts__message-owner">Вы: </span>стикер</p>
-            </div>
-            <div class="contacts__info">
-              <time class="contacts__time">11:30</time>
-            </div>
-          </div>
-        </li>
-        <li class="contacts__item">
-          <div class="contacts__item-wrapper">
-            <img class="contacts__ava" src="./src/images/noavatar.png" alt="фото">
-            <div class="contacts__content">
-              <h2 class="contacts__name">Илья</h2>
-              <p class="contacts__last-message">
-                <span class="contacts__message-owner"></span>
-                Друзья, у меня для вас особенный выпуск новостей! Много чего нужно расскзать
-              </p>
-            </div>
-            <div class="contacts__info">
-              <time class="contacts__time">15:12</time>
-              <p class="contacts__new-messages">
-                <mark class="contacts__count">4</mark>
-              </p>
-            </div>
-          </div>
-        </li>
+<!--    <div class="modal__content modal__content_add-user elem-hidden">-->
+<!--      <h3 class="modal__title modal__title_popup">Добавить пользователя</h3>-->
+<!--      <form class="modal__form" name="auth" novalidate>-->
+<!--        <div class="input-field">-->
+<!--          <label for="add-login" class="input-field__label">Логин</label>-->
+<!--          <input id="add-login" type="text" name="login" class="input-field__input input-field__input_type_add-login"-->
+<!--                 placeholder="Введите логин" required>-->
+<!--          <span class="input-field__error-message input-field_error-message_add-login elem-hidden"></span>-->
+<!--        </div>-->
+<!--        <button class="button modal__button modal__button_popup modal__button_add-user" name='btn' disabled>Добавить-->
+<!--        </button>-->
+<!--      </form>-->
+<!--    </div>-->
 
-      </ul>
-    </aside>
+<!--    <div class="modal__content modal__content_remove-user">-->
+<!--      <h3 class="modal__title modal__title_popup">Удалить пользователя</h3>-->
+<!--      <form class="modal__form" name="auth" novalidate>-->
+<!--        <div class="input-field">-->
+<!--          <label for="remove-login" class="input-field__label">Логин</label>-->
+<!--          <input id="remove-login" type="text" name="login"-->
+<!--                 class="input-field__input input-field__input_type_remove-login"-->
+<!--                 placeholder="Введите логин" required>-->
+<!--          <span class="input-field__error-message input-field_error-message_remove-login elem-hidden"></span>-->
+<!--        </div>-->
+<!--        <button class="button modal__button modal__button_popup modal__button_remove-user" name='btn' disabled>Удалить-->
+<!--        </button>-->
+<!--      </form>-->
+<!--    </div>-->
 
-    <section class="dialogs">
-      <p class="dialogs__choose-one elem-hidden">Выберите чат чтобы отправить сообщение</p>
-
-
-      <div class="dialogs__main">
-
-        <header class="dialogs__head">
-          <div class="dialogs__info">
-            <img class="dialogs__ava" src="./src/images/noavatar.png" alt="фото">
-            <h1 class="dialogs__name">Андрей</h1>
-          </div>
-          <div class="dialogs__control">
-            <div class="dialogs__button"></div>
-
-            <ul class="draw-list dialogs__draw-list">
-              <li class="draw-list__item">
-                <div class="draw-list__img draw-list__img_add"></div>
-                <p class="draw-list__text">Добавить пользователя</p>
-              </li>
-              <li class="draw-list__item">
-                <div class="draw-list__img draw-list__img_remove"></div>
-                <p class="draw-list__text">Удалить пользователя</p>
-              </li>
-              <li class="draw-list__item draw-list__item_remove">
-                <div class="draw-list__img draw-list__img_remove"> </div>
-                <p class="draw-list__text">Удалить диалог</p>
-              </li>
-            </ul>
-          </div>
-        </header>
-
-        <main class="messages">
-
-          <time class="message__date">19 июня</time>
-
-          <!-- сообщение пользователя-->
-          <div class="message__container message-out message-first">
-            <div class="message__box message__box_width">
-              <!-- первое сообщение-->
-              <span class="message__tail-out">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13" width="8" height="13">
-                  <path opacity=".13" d="M5.188 1H0v11.193l6.467-8.625C7.526 2.156 6.958 1 5.188 1z"></path>
-                  <!-- <path fill="currentColor"-->
-                  <path
-                    d="M5.188 0H0v11.193l6.467-8.625C7.526 1.156 6.958 0 5.188 0z"></path>
-                </svg>
-              </span>
-
-              <div class="message__wrapper messages__wrapper_shadow">
-                <div class="message__core">
-                  <div class="message__text-container">
-                    <div class="message__text-inner-container">
-                      <span
-                        class="message__text selectable-text">Привет, как дела? Расскажи, что у тебя нового. какой-то текст тестовый. еще текст ываываыва ываыва ываыва</span>
-                      <span class="message__space"></span>
-                    </div>
-                  </div>
-                  <div class="message__time-container">
-                    <div class="message__time-inner-container">
-                      <time class="message__time">11:50</time>
-                      <div class="message__status-container">
-                        <span data-testid="msg-dblcheck" aria-label=" Прочитано " data-icon="msg-dblcheck"
-                              class="message__status message__status_checked">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 15" width="16" height="15">
-                          <!-- <path fill="currentColor"-->
-                            <path
-                              d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.879a.32.32 0 0 1-.484.033l-.358-.325a.319.319 0 0 0-.484.032l-.378.483a.418.418 0 0 0 .036.541l1.32 1.266c.143.14.361.125.484-.033l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.879a.32.32 0 0 1-.484.033L1.891 7.769a.366.366 0 0 0-.515.006l-.423.433a.364.364 0 0 0 .006.514l3.258 3.185c.143.14.361.125.484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z">
-                            </path>
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- входящее сообщение -->
-          <div class="message__container message-in message-first">
-            <!-- <p class=" xt pr-10">Имя</p>-->
-            <div class="message__box message__box_width">
-              <!-- если первое сообщение -->
-              <span class="message__tail-in">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13" width="8" height="13">
-                  <path opacity=".13" fill="#0000000"
-                        d="M1.533 3.568L8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z"></path>
-                  <!-- <path fill="currentColor" -->
-                  <path
-                    d="M1.533 2.568L8 11.193V0H2.812C1.042 0 .474 1.156 1.533 2.568z"></path>
-                </svg>
-              </span>
-
-              <div class="message__wrapper message__wrapper_shadow">
-                <div class="message__core">
-                  <div class="message__text-container">
-                    <div class="message__text-inner-container">
-                      <span
-                        class="message__text selectable-text">Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой <br>
-
-Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.</span>
-                      <span class="message__space"></span>
-                    </div>
-                  </div>
-                  <div class="message__time-container">
-                    <div class="message__time-inner-container">
-                      <time class="message__time">11:51</time>
-                      <div class="message__status-container">
-                        <span data-testid="msg-dblcheck" aria-label=" Прочитано " data-icon="msg-dblcheck"
-                              class="message__status message__status_checked">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 15" width="16" height="15">
-                            <!-- <path fill="currentColor" -->
-                            <path
-                              d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.879a.32.32 0 0 1-.484.033l-.358-.325a.319.319 0 0 0-.484.032l-.378.483a.418.418 0 0 0 .036.541l1.32 1.266c.143.14.361.125.484-.033l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.879a.32.32 0 0 1-.484.033L1.891 7.769a.366.366 0 0 0-.515.006l-.423.433a.364.364 0 0 0 .006.514l3.258 3.185c.143.14.361.125.484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z">
-                            </path>
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- входящее сообщение -->
-          <div class="message__container message-in">
-            <!-- <p class=" xt pr-10">Имя</p>-->
-            <div class="message__box message__box_width">
-              <!-- если первое сообщение -->
-              <!--              <span class="message__tail-in">-->
-              <!--                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13" width="8" height="13">-->
-              <!--                  <path opacity=".13" fill="#0000000"-->
-              <!--                        d="M1.533 3.568L8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z"></path>-->
-              <!--                  &lt;!&ndash; <path fill="currentColor" &ndash;&gt;-->
-              <!--                  <path-->
-              <!--                    d="M1.533 2.568L8 11.193V0H2.812C1.042 0 .474 1.156 1.533 2.568z"></path>-->
-              <!--                </svg>-->
-              <!--              </span>-->
-
-              <div class="message__wrapper message__wrapper_shadow">
-                <div class="message__core">
-                  <img src="src/images/test%20img.jpg" class="message__img" alt="">
-                  <div class="message__time-container message__time-container_img">
-                    <div class="message__time-inner-container">
-                      <time class="message__time">11:51</time>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </main>
-
-        <div class="send-message">
-          <div class="send-message__attach-container">
-            <div class="send-message__attach-img">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M7.18662 13.5L14.7628 5.92389L15.7056 6.8667L8.12943 14.4428L7.18662 13.5Z" fill="#999999"/>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M9.70067 16.0141L17.2768 8.43793L18.2196 9.38074L10.6435 16.9569L9.70067 16.0141Z"
-                      fill="#999999"/>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M15.0433 21.3567L22.6195 13.7806L23.5623 14.7234L15.9861 22.2995L15.0433 21.3567Z"
-                      fill="#999999"/>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M17.5574 23.8708L25.1335 16.2946L26.0763 17.2374L18.5002 24.8136L17.5574 23.8708Z"
-                      fill="#999999"/>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M17.5574 23.8709C14.9423 26.486 10.7118 26.4954 8.10831 23.8919C5.50482 21.2884 5.51424 17.0579 8.12936 14.4428L7.18655 13.5C4.0484 16.6381 4.0371 21.7148 7.16129 24.839C10.2855 27.9632 15.3621 27.9518 18.5003 24.8137L17.5574 23.8709Z"
-                      fill="#999999"/>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M22.6195 13.7806L23.5623 14.7234C26.003 12.2826 26.0118 8.3341 23.5819 5.90417C21.152 3.47424 17.2035 3.48303 14.7627 5.92381L15.7055 6.86662C17.6233 4.94887 20.7257 4.94196 22.6349 6.85119C24.5441 8.76042 24.5372 11.8628 22.6195 13.7806Z"
-                      fill="#999999"/>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M9.70092 16.0144C7.95751 17.7578 7.95123 20.5782 9.68689 22.3138C11.4226 24.0495 14.2429 24.0432 15.9863 22.2998L15.0435 21.357C13.8231 22.5774 11.8489 22.5818 10.6339 21.3668C9.41894 20.1518 9.42334 18.1776 10.6437 16.9572L9.70092 16.0144Z"
-                      fill="#999999"/>
-              </svg>
-            </div>
-            <ul class="draw-list send-message__draw-list">
-              <li class="draw-list__item">
-                <!-- хотелось бы, чтобы при нажатии на иконку тоже открывалось меню загрузки файла, можно ли div в label запихнуть?
-                поискал информацию в инете, похоже на холиварную тему -->
-                <div class="draw-list__img draw-list__img_photo-video"></div>
-                <form class="draw-list__form" name="addCommon">
-                  <label for="add-common" class="input-field__label input-field__label_attach">
-                    Фото или Видео</label>
-                  <input class="input-field__input input-field__input_type_add-common elem-hidden"
-                         id="add-common" type="file" name="photoVideo"
-                         placeholder="" required>
-                </form>
-              </li>
-              <li class="draw-list__item">
-                <div class="draw-list__img draw-list__img_photo"></div>
-                <form class="draw-list__form" name="addPhoto">
-                  <label for="add-photo" class="input-field__label input-field__label_attach">Фото</label>
-                  <input class="input-field__input input-field__input_type_add-photo elem-hidden"
-                         id="add-photo" type="file" name="photo"
-                         placeholder="" required>
-                </form>
-              </li>
-              <li class="draw-list__item">
-                <div class="draw-list__img draw-list__img_location"></div>
-                <form class="draw-list__form" name="addLocation">
-                  <label for="add-location" class="input-field__label input-field__label_attach">Локация</label>
-                  <input class="input-field__input input-field__input_type_add-location elem-hidden"
-                         id="add-location" type="file" name="photo"
-                         placeholder="" required>
-                </form>
-              </li>
-            </ul>
-          </div>
-
-          <form class="send-message__form" name="send-message" novalidate>
-            <input class="send-message__input"
-                   type="text" name="send-msg"
-                   placeholder="Сообщение" required>
-            <button class="send-message__button"></button>
-          </form>
-        </div>
-
-      </div>
-
-    </section>
-  </div>
-
-  <div class="overlay overlay_modal elem-hidden"></div>
-
-  <div class="modal modal_popup elem-hidden">
-    <img src="src/images/close.svg" alt="закрыть" class="modal__close">
-
-    <div class="modal__content modal__content_add-user elem-hidden">
-      <h3 class="modal__title modal__title_popup">Добавить пользователя</h3>
-      <form class="modal__form" name="auth" novalidate>
-        <div class="input-field">
-          <label for="add-login" class="input-field__label">Логин</label>
-          <input id="add-login" type="text" name="login" class="input-field__input input-field__input_type_add-login"
-                 placeholder="Введите логин" required>
-          <span class="input-field__error-message input-field_error-message_add-login elem-hidden"></span>
-        </div>
-        <button class="button modal__button modal__button_popup modal__button_add-user" name='btn' disabled>Добавить
-        </button>
-      </form>
-    </div>
-
-    <div class="modal__content modal__content_remove-user">
-      <h3 class="modal__title modal__title_popup">Удалить пользователя</h3>
-      <form class="modal__form" name="auth" novalidate>
-        <div class="input-field">
-          <label for="remove-login" class="input-field__label">Логин</label>
-          <input id="remove-login" type="text" name="login"
-                 class="input-field__input input-field__input_type_remove-login"
-                 placeholder="Введите логин" required>
-          <span class="input-field__error-message input-field_error-message_remove-login elem-hidden"></span>
-        </div>
-        <button class="button modal__button modal__button_popup modal__button_remove-user" name='btn' disabled>Удалить
-        </button>
-      </form>
-    </div>
-
-  </div>
+<!--  </div>-->
 
 </div>
 
-<script src="scripts/common.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/handlebars@4.0.5/dist/handlebars.min.js"></script>
+<script type="module" src="src/scripts/dialogs.js"></script>
 </body>
 </html>

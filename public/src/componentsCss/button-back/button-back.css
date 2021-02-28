@@ -8,6 +8,11 @@
   cursor: pointer;
 }
 
-.button-back svg {
-  transform: rotate(180deg);
+.button-back__inner {
+  width: 28px;
+  height: 28px;
+
+  background-size: cover;
+  background-position: center;
+  background-image: url(../../images/buttonBack.svg);
 }

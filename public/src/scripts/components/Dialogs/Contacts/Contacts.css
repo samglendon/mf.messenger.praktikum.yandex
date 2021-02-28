@@ -1,0 +1,36 @@
+@import url(contactsCss/contacts__profile-button.css);
+@import url(contactsCss/contacts__search-container.css);
+@import url(contactsCss/contacts__list.css);
+@import url(contactsCss/contacts__item.css);
+@import url(contactsCss/contacts__item-wrapper.css);
+@import url(contactsCss/contacts__ava.css);
+@import url(contactsCss/contacts__info.css);
+@import url(contactsCss/contacts__name.css);
+@import url(contactsCss/contacts__last-message.css);
+@import url(contactsCss/contacts__time.css);
+@import url(contactsCss/contacts__new-messages.css);
+@import url(contactsCss/contacts__count.css);
+@import url(contactsCss/contacts__message-owner.css);
+
+.contacts {
+  width: 25%;
+  height: 100vh;
+
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--color-text-first);
+
+  background-color: var(--color-background);
+}
+
+.contacts .contacts__profile-button {
+  padding: 0 10px;
+}
+.contacts .contacts__search-container {
+  margin: 0 10px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--color-border);
+}

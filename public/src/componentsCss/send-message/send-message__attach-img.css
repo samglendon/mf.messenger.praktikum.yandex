@@ -1,7 +1,26 @@
+/*.send-message__attach-img {*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*.send-message__attach-img:hover path{*/
+/*  fill: var(--color-blue);*/
+/*}*/
 .send-message__attach-img {
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  padding: 0;
+
+  background-image: url("../../images/attach.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
   cursor: pointer;
 }
 
-.send-message__attach-img:hover path{
-  fill: var(--color-blue);
+.send-message__attach-img:hover {
+  background-image: url("../../images/attachHover.svg");
 }
