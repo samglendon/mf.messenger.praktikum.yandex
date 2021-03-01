@@ -4,6 +4,7 @@
   "description": "Даже законченный проект остаётся только заготовкой, пока им не начнут пользоваться. Но сначала пользователь должен понять, зачем ему пользоваться вашим кодом. В этом помогает файл README.",
   "main": "server.js",
   "scripts": {
+    "buildTs": "tsc",
     "dev": "nodemon --inspect server.js"
   },
   "repository": {
@@ -18,10 +19,11 @@
   },
   "homepage": "https://github.com/samglendon/mf.messenger.praktikum.yandex#readme",
   "dependencies": {
-    "express": "4.17.1"
+    "express": "4.17.1",
+    "handlebars": "^4.7.7"
   },
   "devDependencies": {
     "nodemon": "2.0.6",
-    "typescript": "^4.2.2"
+    "typescript": "4.2.2"
   }
 }
