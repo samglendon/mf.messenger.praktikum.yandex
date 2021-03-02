@@ -1,8 +1,0 @@
-.contacts__item-wrapper {
-  display: grid;
-  grid-template-columns: 47px calc(100% - 47px - 30px - 20px) 30px;
-  grid-gap: 10px;
-
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--color-border);
-}

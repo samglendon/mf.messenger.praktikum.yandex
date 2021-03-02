@@ -1,21 +1,18 @@
-@import url(../../vendor/normalize.css);
-@import url(../../vendor/common.css);
+@import url(../../assets/vendor/normalize.css);
 
-@import url(../../components/root/root.css);
+@import url(../../components/common/Button/Button.css);
+@import url(../../components/common/InputField/InputField.css);
 
-@import url(../../components/common/button.css);
-@import url(../../components/common/search/search.css);
-@import url(../../components/common/input-field/input-field.css);
+@import url(../../components/Dialogs/Dialogs.css);
+@import url(../../components/Dialogs/Contacts/Contacts.css);
+@import url(../../components/Dialogs/DialogContainer/DialogContainer.css);
+@import url(../../components/Dialogs/DialogContainer/Dialog/Dialog.css);
+@import url(../../components/Dialogs/DialogContainer/SendMessage.css);
+@import url(../../components/Dialogs/DialogContainer/DrawLists/DrawList.css);
 
-@import url(../../components/dialogs-page/dialogs-page.css);
-@import url(../../components/contacts/contacts.css);
-@import url(../../components/dialogs/dialogs.css);
-@import url(../../components/messages/messages.css);
-@import url(../../components/message/message.css);
-@import url(../../components/send-message/send-message.css);
-@import url(../../components/modal/modal.css);
-@import url(../../components/draw-list/draw-list.css);
+@import url(../../components/common/Popup/Popup.css);
+@import url(../../components/common/ModalForm/ModalForm.css);
+@import url(../../components/common/Overlay/Overlay.css);
 
-@import url(../../components/common/overlay.css);
-@import url(../../components/common/elem-hidden.css);
-@import url(../../components/common/active.css);
+@import url(../../assets/vendor/common.css);
+

@@ -1,20 +1,15 @@
-@import url(../../vendor/normalize.css);
-@import url(../../vendor/common.css);
+@import url(../../assets/vendor/normalize.css);
 
-@import url(../../components/root/root.css);
+@import url(../../components/common/Button/Button.css);
+@import url(../../components/common/InputField/InputField.css);
 
-@import url(../../components/common/button.css);
-@import url(../../components/common/input-field/input-field.css);
+@import url(../../components/Profile/Profile.css);
+@import url(../../components/Profile/ProfileForm/ProfileForm.css);
 
-@import url(../../components/profile-page/profile-page.css);
-@import url(../../components/button-back/button-back.css);
-@import url(../../components/profile/profile.css);
+@import url(../../components/common/Popup/Popup.css);
+@import url(../../components/common/ModalForm/ModalForm.css);
+@import url(../../components/common/Overlay/Overlay.css);
+
+@import url(../../assets/vendor/common.css);
 
 
-@import url(../../components/modal/modal.css);
-
-
-@import url(../../components/common/overlay.css);
-@import url(../../components/common/elem-hidden.css);
-@import url(../../components/common/elem-covered.css);
-@import url(../../components/common/active.css);
