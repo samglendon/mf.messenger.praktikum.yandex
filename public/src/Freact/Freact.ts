@@ -6,7 +6,7 @@ import {IObj} from "./interfaces";
 
 // FIXME: ВЫСОКИЙ. Без понятия как подключить handlebars
 // @ts-ignore
-import Handlebars from 'handlebars';
+// import Handlebars from 'handlebars';
 
 
 export class Freact {

@@ -3,7 +3,7 @@
 
 declare global {
   interface Window {
-    Handlebars: Object;
+    Handlebars: any;
   }
 }
 
