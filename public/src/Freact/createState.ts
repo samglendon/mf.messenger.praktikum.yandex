@@ -1,6 +1,6 @@
 import {ProxyHandle} from "./ProxyHandler.js";
+import {Freact} from "./Freact.js";
 import {IObj} from "./interfaces";
-import {Freact} from "./Freact";
 
 export const createState = (state: IObj) => {
   const stateTmp = Object.entries(state)

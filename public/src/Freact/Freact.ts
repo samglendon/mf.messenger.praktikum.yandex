@@ -1,11 +1,12 @@
-import {EventBus} from "./Event-bus";
-import {EventsCollection} from "./EventsCollection";
-import Handlebars from 'handlebars';
-import {handlebarsHelpers} from "./handlebarsHelpers";
-import {IObj} from "./interfaces";
+import {EventBus} from "./Event-bus.js";
+import {EventsCollection} from "./EventsCollection.js";
+import {handlebarsHelpers} from "./handlebarsHelpers.js";
 handlebarsHelpers();
+import {IObj} from "./interfaces";
 
-
+// FIXME: ВЫСОКИЙ. Без понятия как подключить handlebars
+// @ts-ignore
+import Handlebars from 'handlebars';
 
 
 export class Freact {
@@ -26,7 +27,7 @@ export class Freact {
     inline: 'inline',
     inlineBlock: 'inline-block'
   };
-  private _newElement: Element = document.createElement('div');
+  private _newElement: Element | null = null;
   private _currentElement: Element | null = null;
   private _stringElement = '';
 
@@ -49,7 +50,7 @@ export class Freact {
 
   // вставляю именно этот элемент в DOM
   get element() {
-    return this._newElement;
+    return this._newElement || document.createElement('div');
   }
 
 
@@ -116,8 +117,10 @@ export class Freact {
   };
 
   _render() {
+    // debugger
     const tmplFromRender: string = this.render();
-    const template = Handlebars.compile(tmplFromRender);
+    const template = window.Handlebars.compile(tmplFromRender);
+    // const template = Handlebars.compile(tmplFromRender);
     this._stringElement = template(this.props);
 
     // первый вариант. Не хотел делать обертку, хотелось сразу получить элементы, которые прописаны в render()

@@ -1,5 +1,5 @@
-import {Freact} from "../../../Freact/Freact";
-import {IObj} from "../../../Freact/interfaces";
+import {Freact} from "../../../Freact/Freact.js";
+import {IObj} from "../../../Freact/interfaces.js";
 
 
 export class Button extends Freact {

@@ -1,5 +1,4 @@
 import {render} from "./utils/renderDom.js";
-
 import {ErrorPage} from "../components/ErrorPage/ErrorPage.js";
 
 const errorContext = {

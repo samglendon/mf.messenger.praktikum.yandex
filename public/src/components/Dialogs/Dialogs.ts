@@ -1,6 +1,6 @@
-import {Freact} from "../../Freact/Freact";
-import {Contacts} from "./Contacts/Contacts";
-import {DialogContainer} from "./DialogContainer/DialogContainer";
+import {Freact} from "../../Freact/Freact.js";
+import {Contacts} from "./Contacts/Contacts.js";
+import {DialogContainer} from "./DialogContainer/DialogContainer.js";
 import {IObj} from "../../Freact/interfaces";
 
 

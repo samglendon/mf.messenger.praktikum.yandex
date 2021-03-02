@@ -1,8 +1,16 @@
-import Handlebars from 'handlebars';
+// @ts-ignore
+// import Handlebars from '../handlebars/dist/cjs/handlebars.js';
+
+declare global {
+  interface Window {
+    Handlebars: Object;
+  }
+}
+
 
 export const handlebarsHelpers = () => {
 
-  Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
+  window.Handlebars.registerHelper('ifCond', function (v1: any, operator: string, v2: any, options: any) {
 
     switch (operator) {
       case '==':

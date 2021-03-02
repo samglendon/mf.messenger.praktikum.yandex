@@ -1,8 +1,8 @@
-import {Freact} from "../../../Freact/Freact";
-import {getFormInfo} from "../../../scripts/utils/getFormInfo";
-import {Button} from "../../common/Button/Button";
-import {ProfileState} from "../../../states/ProfileState";
-import {observe} from "../../../Freact/observe";
+import {Freact} from "../../../Freact/Freact.js";
+import {getFormInfo} from "../../../scripts/utils/getFormInfo.js";
+import {Button} from "../../common/Button/Button.js";
+import {ProfileState} from "../../../states/ProfileState.js";
+import {observe} from "../../../Freact/observe.js";
 import {IObj} from "../../../Freact/interfaces";
 
 
