@@ -1,23 +1,77 @@
-@import url(profile__container.css);
-@import url(profile__ava.css);
-@import url(profile__overlay.css);
-@import url(profile__prompt.css);
-@import url(profile__name.css);
-@import url(profile__list.css);
-@import url(profile__item.css);
-@import url(profile__item-name.css);
-@import url(profile__item-value.css);
-@import url(profile__button.css);
-@import url(profile__edit.css);
-@import url(profile__input.css);
+.profile-page {
+  display: flex;
+  height: 100vh;
 
+  max-width: 1280px;
+  margin: auto;
+}
+
+.button-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5vw;
+  background-color: var(--color-background);
+  border-right: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+.button-back__inner {
+  width: 28px;
+  height: 28px;
+
+  background-size: cover;
+  background-position: center;
+  background-image: url(../../assets/images/buttonBack.svg);
+}
 
 
 .profile {
   width: 100%;
 
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-style: normal;
+}
+
+.profile__container {
+  width: 42%;
+  margin: 60px auto;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile__ava {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background-color: gray;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.profile__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background-color: #1E1E1E;
+  border-radius: 50%;
+
+  z-index: 0;
+
+  transition: all .2s linear;
+  opacity: 0;
 }
 
 .profile__ava:hover .profile__overlay {
@@ -25,4 +79,26 @@
 }
 .profile__ava:hover .profile__prompt {
   opacity: 1;
+}
+
+.profile__prompt {
+  text-align: center;
+
+  color: var(--color-main-white);
+
+  z-index: 0;
+  transition: all .2s linear;
+  opacity: 0;
+}
+
+.profile__name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  /* identical to box height, or 100% */
+
+  text-align: center;
+  color: var(--color-main-primary);
+
+  margin-top: 21px;
 }

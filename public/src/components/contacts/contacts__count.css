@@ -1,9 +1,0 @@
-.contacts__count {
-  font-weight: 500;
-  font-size: 11px;
-  line-height: 12px;
-
-  color: var(--color-main-white);
-  /*сбрасываем дефолтный желтый фон у mark*/
-  background-color: transparent;
-}

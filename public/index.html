@@ -4,106 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="./src/images/faviconka.png" type="image/x-icon"/>
+  <link rel="icon" href="src/assets/images/faviconka.png" type="image/x-icon"/>
   <meta name="keywords" content="Messenger, comfortable, for everyone">
   <meta name="description" content="Удобный мессенджер для всех желающих">
   <meta name="author" content="Михаил Кузнецов, RGlen">
-  <title>Аутентификация</title>
-
-  <link rel="stylesheet" href="src/pages/auth/style.css">
-
+  <title>Диалоги</title>
+  <link rel="stylesheet" href="src/pages/dialogs/style.css">
 </head>
 
 <body>
-<div class="root">
+<div class="root"></div>
 
-  <div class="overlay"></div>
-
-
-  <div class="modal">
-
-    <div class="modal__content modal__content-enter elem-hidden">
-      <h3 class="modal__title">Вход</h3>
-      <form class="modal__form" name="enter" novalidate>
-        <div class="input-field">
-          <label for="login" class="input-field__label">Логин</label>
-          <input id="login" type="text" name="login" class="input-field__input input-field__input_type_email"
-                 placeholder="Введите логин" required>
-          <span class="input-field__error-message input-field__error-message_login"></span>
-        </div>
-        <div class="input-field">
-          <label for="password" class="input-field__label">Пароль</label>
-          <input id="password" type="password" name="password"
-                 class="input-field__input input-field__input_type_password"
-                 placeholder="Введите пароль" required>
-          <span class="input-field__error-message  input-field__error-message_password"></span>
-        </div>
-<!--        <button class="button modal__button modal__button_enter" name='btn' disabled>Авторизоваться</button>-->
-        <button class="button modal__button modal__button_enter" name='btn'>Авторизоваться</button>
-      </form>
-      <button class="modal__option modal__option_registration">Нет аккаунта?</button>
-    </div>
-
-    <div class="modal__content modal__content-registration">
-      <h3 class="modal__title">Регистрация</h3>
-      <form class="modal__form" name="registration" novalidate>
-
-        <div class="input-field">
-          <label for="email-reg" class="input-field__label">Email</label>
-          <input id="email-reg" type="text" name="email" class="input-field__input input-field__input_type_email"
-                 placeholder="Введите почту" required>
-          <span class="input-field__error-message input-field__error-message_email elem-hidden"></span>
-        </div>
-        <div class="input-field">
-          <label for="login-reg" class="input-field__label">Логин</label>
-          <input id="login-reg" type="text" name="login" class="input-field__input input-field__input_type_login"
-                 placeholder="Введите логин" required>
-          <span class="input-field__error-message input-field_error-message_login elem-hidden"></span>
-        </div>
-        <div class="input-field">
-          <label for="name-reg" class="input-field__label">Имя</label>
-          <input id="name-reg" type="text" name="first_name" class="input-field__input input-field__input_type_first_name"
-                 placeholder="Введите своё имя" required>
-          <span class="input-field__error-message input-field_error-message_first_name elem-hidden"></span>
-        </div>
-        <div class="input-field">
-          <label for="second-name-reg" class="input-field__label">Фамилия</label>
-          <input id="second-name-reg" type="text" name="second_name" class="input-field__input input-field__input_type_second-name"
-                 placeholder="Введите свою фамилию" required>
-          <span class="input-field__error-message input-field_error-message_second-name elem-hidden"></span>
-        </div>
-        <div class="input-field">
-          <label for="tel-reg" class="input-field__label">Телефон</label>
-          <input id="tel-reg" type="tel" name="phone" class="input-field__input input-field__input_type_phone"
-                 placeholder="+7-(999)-999-99-99" required>
-          <span class="input-field__error-message input-field_error-message_phone elem-hidden"></span>
-
-        </div>
-        <div class="input-field">
-          <label for="password-reg" class="input-field__label">Пароль</label>
-          <input id="password-reg" type="password" name="password"
-                 class="input-field__input input-field__input_type_password"
-                 placeholder="Введите пароль" required>
-          <span class="input-field__error-message input-field__error-message_password elem-hidden"></span>
-        </div>
-        <div class="input-field">
-          <label for="password-again-reg" class="input-field__label">Пароль</label>
-          <input id="password-again-reg" type="password" name="password-again"
-                 class="input-field__input input-field__input_type_password"
-                 placeholder="Повторите пароль еще раз" required>
-          <span class="input-field__error-message input-field__error-message_password-again elem-hidden"></span>
-        </div>
-
-<!--        <button class="button modal__button modal__button_registration" name='btn' disabled>Зарегистрироваться</button>-->
-        <button class="button modal__button modal__button_registration" name='btn'>Зарегистрироваться</button>
-      </form>
-<!--      <p class="modal__or"><span class="modal__option modal__option_enter">Войти</span></p>-->
-      <button class="modal__option modal__option_registration">Нет аккаунта?</button>
-    </div>
-
-  </div>
-</div>
-
-<script src="scripts/common.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/handlebars@4.0.5/dist/handlebars.min.js"></script>
+<script type="module" src="dist/pages/dialogs/dialogs.js"></script>
 </body>
 </html>
