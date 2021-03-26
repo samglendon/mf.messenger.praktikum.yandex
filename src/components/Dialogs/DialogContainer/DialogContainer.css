@@ -1,0 +1,100 @@
+.dialogs {
+  width: 75%;
+  height: 100vh;
+
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  color: var(--color-text-first);
+
+
+  &__choose-one {
+    text-align: center;
+    line-height: 100vh;
+  }
+
+  &__main {
+    padding: 0 20px;
+  }
+
+  &__head {
+    height: 54px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__ava {
+    width: 34px;
+    height: 34px;
+    border-radius: 50px;
+
+    background-color: gray;
+    margin-right: 15px;
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 13px;
+
+    color: var(--color-main-primary);
+  }
+
+  &__control {
+    position: relative;
+  }
+
+  &__draw-list {
+    top: 50px;
+    right: 0;
+  }
+
+  &__button {
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    box-sizing: border-box;
+
+    background-image: url("../../../../public/assets/images/dialogControl.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #F5F5F5;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

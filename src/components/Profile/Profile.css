@@ -1,0 +1,114 @@
+.profile-page {
+  display: flex;
+  height: 100vh;
+
+  max-width: 1280px;
+  margin: auto;
+}
+
+.button-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5vw;
+  background-color: var(--color-background);
+  border-right: 1px solid var(--color-border);
+  cursor: pointer;
+
+  &__inner {
+    width: 28px;
+    height: 28px;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../../../public/assets/images/buttonBack.svg);
+  }
+}
+
+
+.profile {
+  width: 100%;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+
+
+  &__container {
+    width: 42%;
+    margin: 60px auto;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+
+  &__ava {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: gray;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    cursor: pointer;
+  }
+
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    background-color: #1E1E1E;
+    border-radius: 50%;
+
+    z-index: 0;
+
+    transition: all .2s linear;
+    opacity: 0;
+  }
+
+
+  &__ava:hover &__overlay {
+    opacity: 1;
+  }
+
+  &__ava:hover &__prompt {
+    opacity: 1;
+  }
+
+
+  &__prompt {
+    text-align: center;
+
+    color: var(--color-main-white);
+
+    z-index: 0;
+    transition: all .2s linear;
+    opacity: 0;
+  }
+
+
+  &__name {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    /* identical to box height, or 100% */
+
+    text-align: center;
+    color: var(--color-main-primary);
+
+    margin-top: 21px;
+  }
+
+
+  &__item-error-message {
+    display: none;
+  }
+}

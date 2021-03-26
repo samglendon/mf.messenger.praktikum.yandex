@@ -1,0 +1,58 @@
+{
+  "name": "mf.messenger.praktikum.yandex",
+  "version": "1.0.0",
+  "description": "Даже законченный проект остаётся только заготовкой, пока им не начнут пользоваться. Но сначала пользователь должен понять, зачем ему пользоваться вашим кодом. В этом помогает файл README.",
+  "main": "server.js",
+  "scripts": {
+    "compile-ts": "tsc",
+    "compile-css": "postcss src/**/*.css --base src --dir public/compiled",
+    "compile": "concurrently npm:compile-css npm:compile-ts",
+    "dev": "nodemon --inspect server.js",
+    "compile-ts-test": "tsc -p tsconfig.test.json",
+    "test-mocha": "./node_modules/.bin/mocha",
+    "clean": "rimraf ./test/compiled",
+    "test": "npm run compile-ts-test && npm run test-mocha && npm run clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samglendon/mf.messenger.praktikum.yandex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samglendon/mf.messenger.praktikum.yandex/issues"
+  },
+  "homepage": "https://github.com/samglendon/mf.messenger.praktikum.yandex#readme",
+  "dependencies": {
+    "express": "4.17.1",
+    "express-rate-limit": "^5.2.6",
+    "helmet": "^4.4.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-typescript": "^7.13.0",
+    "@babel/register": "^7.13.8",
+    "@types/chai": "^4.2.15",
+    "@types/jsdom": "^16.2.7",
+    "@types/mocha": "^8.2.2",
+    "autoprefixer": "^10.2.5",
+    "chai": "^4.3.4",
+    "concurrently": "^6.0.0",
+    "jsdom": "^16.5.1",
+    "mocha": "^8.3.2",
+    "nodemon": "2.0.6",
+    "postcss": "^8.2.8",
+    "postcss-cli": "^8.3.1",
+    "postcss-nested": "^5.0.5",
+    "postcss-url": "^10.1.3",
+    "rimraf": "^3.0.2",
+    "typescript": "4.2.2"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ios >= 8"
+  ]
+}

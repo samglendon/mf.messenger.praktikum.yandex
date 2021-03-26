@@ -1,0 +1,40 @@
+.register {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.1;
+
+    z-index: 201;
+  }
+
+  &__modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 201;
+    display: flex;
+    width: 430px;
+    background-color: var(--color-main-white);
+    border-radius: 16px;
+    box-sizing: border-box;
+    padding: 50px 30px 30px;
+
+    @media all and (max-width: 650px) {
+      top: 56px;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      height: calc(100vh - 56px);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      padding: 16px 5.2% 0;
+    }
+  }
+}
+
+
