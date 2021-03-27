@@ -1,6 +1,6 @@
 import {HTTPTransport} from "./xhrHttpRequest.js";
 
-const xhrApi = new HTTPTransport();
+const xhrApi = new HTTPTransport(true);
 // xhrApi.xhrWithRetry(5).get('https://trololo');
 
 interface ISignup {
