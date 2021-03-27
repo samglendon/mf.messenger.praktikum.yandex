@@ -29,9 +29,11 @@ type OptionsWithoutMethod = Omit<Options, 'method'>;
 
 export class HTTPTransport {
   private static __instance: HTTPTransport;
-  private readonly _baseUrl: string = 'http://localhost:5000';
+  private _baseUrl: string;
 
-  constructor() {
+  constructor(isProd: boolen) {
+    _baseUrl = (isProd) ? 'https://ya-praktikum.tech' : 'http://localhost:5000';
+    
     if (HTTPTransport.__instance) {
       return HTTPTransport.__instance;
     }
