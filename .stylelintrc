@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "stylelint-config-rational-order",
+    "stylelint-prettier/recommended"
+  ],
+  "plugins": [
+    "stylelint-order",
+    "stylelint-config-rational-order/plugin"
+  ],
+  "rules": {
+    "color-hex-case": "lower",
+    "order/properties-order": [],
+    "plugin/rational-order": [true, {
+      "border-in-box-model": true,
+      "empty-line-between-groups": false
+    }]
+  },
+  "ignoreFiles": [
+    "public/**/*",
+    "dist/**/*",
+    "build/**/*"
+  ]
+}

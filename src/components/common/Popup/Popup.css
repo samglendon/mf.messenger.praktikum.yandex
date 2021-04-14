@@ -1,0 +1,43 @@
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 201;
+  display: flex;
+  box-sizing: border-box;
+  width: 430px;
+  padding: 50px 30px 30px;
+  border-radius: 16px;
+  background-color: var(--color-main-white);
+  transform: translate(-50%, -50%);
+
+  @media all and (max-width: 650px) {
+    top: 56px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 56px);
+    padding: 16px 5.2% 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    transform: translate(0);
+  }
+
+  &_modal {
+    width: 340px;
+    padding: 40px 30px;
+  }
+
+  &__close {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    z-index: 10;
+    width: 40px;
+    cursor: pointer;
+
+    @media all and (max-width: 650px) {
+      right: 5.2%;
+      width: 24px;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+*config*
+
+.idea
+.DS_Store
+.vscode
+
+node_modules
+public
+build
+dist
+compiled
+
+log
