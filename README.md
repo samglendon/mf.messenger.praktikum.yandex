@@ -15,5 +15,4 @@ docker port [CONTAINER]  - посмотреть все открытые порт
 docker ps -a
 docker stop -t 0 ed22
 
-docker rm $(docker ps -a -q -f status=exited)
-docker rmi   
+  
