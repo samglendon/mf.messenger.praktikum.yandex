@@ -13,6 +13,8 @@ const formButton = new Button({
   disabled: false,
 });
 
+// FIXME: СРЕДНИЙ. Хотелось бы не копипастить элементы в форме,
+//  но для этого нужно корректно связать данные из ProfileState с value в fields!
 const contextProfileForm = {
   formName: 'profile',
   // fields: [
@@ -112,7 +114,6 @@ export class ProfileForm extends Freact<IObj> {
         console.log(`данные из формы ${form.name}`);
         console.dir(changeData);
 
-        // getFormInfo(e.target as HTMLFormElement);
         changeProfileTC(changeData, formValidation.showCommonError);
         // ProfileState.edit = false;
       };

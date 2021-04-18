@@ -8,7 +8,6 @@ class HashRouter {
   private _currentRoute: Route | null = null;
   private readonly _rootQuery: string;
 
-  // constructor(private _rootQuery: string) {
   constructor(rootQuery: string) {
     this._rootQuery = rootQuery;
 
@@ -33,13 +32,6 @@ class HashRouter {
       this._onRoute(newHash);
     });
 
-    // window.onpopstate = (event: Event) => {
-    //   debugger
-    //   const currentTarget: EventTarget = event.currentTarget!;
-    //   //FIXME: ВЫСОКИЙ. Проблемы с location и TS
-    //   // @ts-ignore
-    //   this._onRoute(currentTarget.location.pathname);
-    // };
     const pathStartTmp = location.hash ? location.hash : '/';
     const pathStart = pathStartTmp.replace('#', '');
 
@@ -55,7 +47,6 @@ class HashRouter {
 
     if (route) {
       this._currentRoute = route;
-      // route.render(route, pathname);
       route.render();
     } else {
       this.go('/error404');

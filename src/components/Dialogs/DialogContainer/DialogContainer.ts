@@ -42,11 +42,12 @@ export class DialogContainer extends Freact<IObj> {
 
       const submitFunc = (e: Event) => {
         e.preventDefault();
+
         const formData = new FormData(form);
         const content = formData.get('content');
+
         webSocketService.send(SEND_ACTIONS.SEND_TEXT, { content: String(content) });
         form.reset();
-        // this.props.formFunc(form, formValidation.showCommonError);
       };
       return submitFunc;
     };

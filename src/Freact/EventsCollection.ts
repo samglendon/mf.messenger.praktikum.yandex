@@ -7,7 +7,6 @@ interface IEvent {
 }
 
 export class EventsCollection {
-  // private collectionEvents: IEvent = {};
   public collectionEvents: IEvent = {};
 
   set(elemSelector: string, eventName: string, callback: Function, needRun: boolean) {
@@ -26,10 +25,6 @@ export class EventsCollection {
   resetEvents(root: Element = document.body) {
     Object.keys(this.collectionEvents).forEach((elemSelector) => {
       const currentElement = root.querySelector(elemSelector);
-      // console.log('сработал resetEvents для ' + elemSelector);
-      // console.log('currentElement= ');
-      // console.dirxml(currentElement);
-      // console.log('--------------------------');
 
       if (currentElement) {
         this.collectionEvents[elemSelector].forEach(({ eventName, callback, needRun }) => {
@@ -39,15 +34,4 @@ export class EventsCollection {
       }
     });
   }
-
-  // off(event, callback) {
-  //     if (!this.listeners[event]) {
-  //         throw new Error(`Нет события: ${event}`);
-  //     }
-  //
-  //     this.listeners[event] = this.listeners[event].filter(
-  //         listener => listener !== callback
-  //     );
-  // }
-  //
 }

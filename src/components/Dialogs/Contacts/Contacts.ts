@@ -2,8 +2,6 @@ import { Freact } from '../../../Freact/Freact';
 import { ContactsList } from './ContactsList/ContactsList';
 import { router } from '../../../Freact/Routing/HashRouter';
 import { IObj } from '../../../Freact/interfacesFreact';
-import { observe } from '../../../Freact/observe';
-import { DialogsState } from '../../../states/DialogsState';
 import { AppState } from '../../../states/AppState';
 
 export class Contacts extends Freact<IObj> {

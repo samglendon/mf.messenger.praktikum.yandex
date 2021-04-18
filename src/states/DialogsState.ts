@@ -74,39 +74,32 @@ export const createDialogTC = (data: { title: string }, callbackError: Function)
 };
 
 export const addUserTC = (usersId: number[], callbackError: Function) => {
-  // debugger;
   const data = {
     users: [...usersId],
     chatId: DialogsState.dialogsList[DialogsState.activeDialogNumber].id,
   };
-  // debugger;
   apiChat.addUser(data)
     .then((data: any) => {
       console.log(data);
-      // debugger;
       AppState.popupAddUser = false;
       AppState.shownOverlay = false;
     })
     .catch((err: unknown) => {
-      // debugger;
       console.error(err);
       callbackError(err);
     });
 };
 
 export const prepareAndConnectWSTC = (chatId: number) => {
-  // debugger
   DialogsState.currentMessages = [];
   apiChat.getToken(chatId)
     .then((data: any) => {
       const { token } = data;
       console.log('Токен');
       console.log(token);
-      // debugger
       webSocketService.connect(AuthState.id, chatId, token);
     })
     .catch((err: unknown) => {
-      // debugger
       console.error(err);
     });
 };

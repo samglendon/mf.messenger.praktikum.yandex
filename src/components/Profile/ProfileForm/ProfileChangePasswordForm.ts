@@ -56,8 +56,6 @@ export class ProfileChangePasswordForm extends Freact<IObj> {
   }
 
   componentDidMount(oldProps: IObj) {
-    // observe.call(this, ProfileState, 'changePassword');
-
     const submitHandler = () => {
       const form = document.forms[this.props.formName];
       if (form) new FormValidation(form, 'profile-form__item', 'profile-form__item-error-message');

@@ -30,9 +30,6 @@ export class Profile extends Freact<IObj> {
   }
 
   componentDidMount(oldProps: IObj) {
-    // observe.call(this, ProfileState, 'edit');
-    // observe.call(this, ProfileState, 'changePassword');
-
     const callback = () => {
       AppState.shownOverlay = true;
       ProfileState.setAvatar = true;

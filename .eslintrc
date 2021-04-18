@@ -35,6 +35,7 @@
     "no-mixed-operators": "warn",
     "object-curly-newline": ["error", {
       "ObjectPattern": { "minProperties": 7 }
-    }]
+    }],
+    "import/no-extraneous-dependencies": "off"
   }
 }

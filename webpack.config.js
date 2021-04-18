@@ -1,23 +1,17 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const {DuplicatesPlugin} = require('inspectpack/plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
-// FIXME: Не работает UnusedFilesWebpackPlugin
-// const { UnusedFilesWebpackPlugin } = require("unused-files-webpack-plugin");
-// const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
-// const smp = new SpeedMeasurePlugin();
 
 
-// module.exports = smp.wrap({
 module.exports = {
   entry: {
     main: './src/index.ts',                           // указали первое место куда заглянет webpack — файл index.js в папке src
   },
-  output: { // указали в какой файл будет собирться весь js и дали ему имя
-    path: path.resolve(__dirname, 'build'),            // переписали точку выхода, используя утилиту path
+  output: {                                           // указали в какой файл будет собирться весь js и дали ему имя
+    path: path.resolve(__dirname, 'build'),           // переписали точку выхода, используя утилиту path
     filename: 'js/[name].[chunkhash].js',                 // указали путь к файлу, в квадратных скобках куда вставлять сгенерированный хеш (ранее main.js)
     clean: true,                                        // используем вместо clean-webpack-plugin
   },
@@ -87,14 +81,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css',
     }),
-    // new OptimizeCssAssetsPlugin({                     // подключите плагин после MiniCssExtractPlugin
-    //   assetNameRegExp: /\.css$/g,
-    //   cssProcessor: require('cssnano'),
-    //   cssProcessorPluginOptions: {
-    //     preset: ['default'],
-    //   },
-    //   canPrint: true,
-    // }),
     new HtmlWebpackPlugin({                           // настроили плагин
       // Означает, что:
       inject: false,                                  // стили НЕ нужно прописывать внутри тегов
@@ -104,9 +90,8 @@ module.exports = {
       chunks: ['main']
     }),
 
-    // new DuplicatesPlugin(),
-    // new CircularDependencyPlugin(),
-    // new UnusedFilesWebpackPlugin(),
+    new DuplicatesPlugin(),
+    new CircularDependencyPlugin(),
   ],
   devtool: "source-map",
   devServer: {
@@ -115,4 +100,3 @@ module.exports = {
     port: 5000,
   },
 };
-// });

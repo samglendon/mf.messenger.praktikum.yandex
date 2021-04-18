@@ -2,7 +2,6 @@ import { HTTPTransport } from './xhrHttpRequest';
 import { IChangeProfile, ISignin, ISignup } from '../interfacesAndTypeApp';
 
 const xhrApi = new HTTPTransport();
-// xhrApi.xhrWithRetry(5).get('https://trololo');
 
 const apiAuth = {
   signup(data: ISignup) {

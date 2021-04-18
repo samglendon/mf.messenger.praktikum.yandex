@@ -18,15 +18,12 @@ export const createState = (state: IObj) => {
           },
           set(newValue) {
             this[`_${key}`].value = newValue;
-            // for (let i = this[`_${key}`].contexts.length - 1; i > -1; i--) {
-            //   this[`_${key}`].contexts[i].setProps({[key]: newValue});
-            // }
+
             const contextsReverse = [...this[`_${key}`].contexts].reverse();
             console.log('сработало на элементах:');
             contextsReverse.forEach((context: Freact<IObj>) => {
               console.dirxml(context._currentElement);
               context.setProps({ [key]: newValue });
-              // debugger
             });
           },
         },
@@ -45,18 +42,3 @@ export const createState = (state: IObj) => {
 
   return new Proxy(stateTmp, ProxyHandle());
 };
-
-// TODO: возможно нужно сделать эту функцию, чтобы можно было добавлять state в любое место
-//  контекста и при этом компонент обновлялся
-// function doPath(val, callbackPath) {
-//   if (!callbackPath) return {[key]: this.value};
-//
-//   return callbackPath.split('.').reduce((result, key, ind, arr) => {
-//     if (ind === arr.length - 1) {
-//       result[key] = val;
-//       return result;
-//     }
-//     result[key] = []
-//
-//   }, {})
-// }

@@ -4,7 +4,6 @@ import { PlainObject } from '../interfacesAndTypeApp';
 import { omit } from '../utils/myDash/omit';
 import { CHAT_URL_PROD } from '../../config';
 
-// eslint-disable-next-line no-unused-vars
 enum METHOD {
   GET = 'GET',
   POST = 'POST',
@@ -22,12 +21,15 @@ type Options = {
 type OptionsWithoutMethod = Omit<Options, 'method'>;
 
 interface IFuncParams {
-  calledMethod: string;
+  calledMethod: 'get' | 'post' | 'delete' | 'put' | 'patch';
   url: string;
   options: OptionsWithoutMethod;
   timeout: number;
 }
 
+// Пример использования:
+// const xhrApi = new HTTPTransport();
+// xhrApi.xhrWithRetry(5, 3000).get('https://trololo');
 export class HTTPTransport {
   private static __instance: HTTPTransport;
   private readonly _baseUrl: string = CHAT_URL_PROD;
@@ -39,28 +41,28 @@ export class HTTPTransport {
     HTTPTransport.__instance = this;
   }
 
-  xhrWithRetry = (tries: number, funcParamsObj?: IFuncParams): any => {
-    let funcParams: IFuncParams = funcParamsObj || {
-      calledMethod: '',
-      url: '',
-      options: {},
-      timeout: 0,
-    };
+  xhrWithRetry = (tries: number, delay: number): any => {
+    let funcParams: IFuncParams;
+    let triesLeft = tries;
+    // debugger
 
     const onError = (err: unknown): never | unknown => {
-      const triesLeft = tries - 1;
+      // debugger
+      triesLeft--;
       if (!triesLeft) {
         throw err;
       }
-      return this.xhrWithRetry(triesLeft, funcParams)[funcParams.calledMethod as string]();
+      // eslint-disable-next-line no-use-before-define
+      return setTimeout(() => methodRun(funcParams), delay);
     };
 
     const methodRun = (funcParamsObj: IFuncParams) => {
-      if (!funcParams.calledMethod) {
+      // debugger
+      if (!funcParams) {
         funcParams = { ...funcParamsObj };
       }
       const { calledMethod, url, options, timeout } = funcParams;
-      // @ts-ignore
+
       return this[calledMethod](url, options, timeout).catch(onError);
     };
 
@@ -69,16 +71,16 @@ export class HTTPTransport {
         calledMethod: 'get', url, options, timeout,
       }),
       post: (url: string, options: OptionsWithoutMethod = {}, timeout: number = 5000) => methodRun({
-        calledMethod: 'get', url, options, timeout,
+        calledMethod: 'post', url, options, timeout,
       }),
       delete: (url: string, options: OptionsWithoutMethod = {}, timeout: number = 5000) => methodRun({
-        calledMethod: 'get', url, options, timeout,
+        calledMethod: 'delete', url, options, timeout,
       }),
       put: (url: string, options: OptionsWithoutMethod = {}, timeout: number = 5000) => methodRun({
-        calledMethod: 'get', url, options, timeout,
+        calledMethod: 'put', url, options, timeout,
       }),
       patch: (url: string, options: OptionsWithoutMethod = {}, timeout: number = 5000) => methodRun({
-        calledMethod: 'get', url, options, timeout,
+        calledMethod: 'patch', url, options, timeout,
       }),
     };
   };

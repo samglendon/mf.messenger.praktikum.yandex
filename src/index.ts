@@ -7,7 +7,6 @@ import { Login } from './components/Login/Login';
 import { Register } from './components/Register/Register';
 import { ErrorPage } from './components/ErrorPage/ErrorPage';
 
-import { apiAuth } from './scripts/api/api';
 import { userInfoTC } from './states/AuthState';
 
 const error404Context = {
@@ -29,13 +28,4 @@ router
   .use('/error500', ErrorPage, error500Context)
   .start();
 
-// apiAuth.userInfo()
-//   .then((userInfo) => {
-//     console.dir(userInfo);
-//   })
-//   .catch((reason) => {
-//     // debugger
-//     console.error(reason);
-//     router.go('/login');
-//   });
 userInfoTC();

@@ -22,7 +22,6 @@ export const userInfoTC = () => {
   setTimeout(() => {
     apiAuth.userInfo()
       .then((userInfo) => {
-        // webSocketService.connect();
         Object.entries(userInfo).forEach(([key, value]) => {
           AuthState[key] = value;
         });
@@ -39,11 +38,9 @@ export const loginTC = (loginData: TFromForm, callbackError: Function) => {
 
   apiAuth.signin({ login: String(login), password: String(password) })
     .then((data: any) => {
-      console.log(data);
       return apiAuth.userInfo();
     })
     .then((userInfo) => {
-      // webSocketService.connect();
       Object.entries(userInfo).forEach(([key, value]) => {
         AuthState[key] = value;
       });
@@ -79,7 +76,6 @@ export const registerTC = (registerData: TFromForm, callbackError: Function) => 
 export const logoutTC = () => {
   apiAuth.logout()
     .then((data: any) => {
-      console.log(data);
       router.go('/login');
     })
     .catch((err: unknown) => {

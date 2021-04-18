@@ -1,6 +1,4 @@
-// @ts-ignore
-// eslint-disable-next-line import/no-extraneous-dependencies
-import Handlebars from 'handlebars/dist/handlebars.js';
+import Handlebars from 'handlebars';
 
 import { EventBus } from './Event-bus';
 import { EventsCollection } from './EventsCollection';

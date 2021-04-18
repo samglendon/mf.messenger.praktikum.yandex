@@ -10,7 +10,6 @@ const initialState = {
 export const AppState = createState(initialState);
 
 declare global {
-  // eslint-disable-next-line no-unused-vars
   interface Window {
     AppStateW: any;
     AuthStateW: any;

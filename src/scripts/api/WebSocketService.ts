@@ -16,14 +16,10 @@ class WebSocketService {
   }
 
   connect = (userId: number, chatId: number, token: string) => {
-    // debugger
     if (!this.socket) {
       this.socket = new WebSocket(`${this._baseUrl}/${userId}/${chatId}/${token}`);
     }
 
-    // this.socket.onopen = (): void => {
-    //   if (this.intervalID) clearInterval(this.intervalID);
-    // };
     this.socket.addEventListener('open', () => {
       console.log('Соединение установлено');
       if (this.intervalID) clearInterval(this.intervalID);
@@ -32,11 +28,6 @@ class WebSocketService {
         this.socket.send(JSON.stringify({ content: 'Моё первое сообщение миру!', type: 'message' }));
       }
     });
-
-    // this.socket.onclose = (event): void => {
-    //   console.log(`Websocket закрыт. Код: ${event.code} причина: ${event.reason}`);
-    //   this.intervalID = setInterval(() => { this.connect(userId, chatId, token); }, 5000);
-    // };
 
     this.socket.addEventListener('close', (event) => {
       if (event.wasClean) {
@@ -47,11 +38,6 @@ class WebSocketService {
       }
       console.log(`Websocket закрыт. Код: ${event.code} | Причина: ${event.reason}`);
     });
-
-    // this.socket.onerror = (error): void => {
-    //   if (this.socket) this.socket.close();
-    //   console.dir(error);
-    // };
 
     this.socket.addEventListener('error', (event) => {
       console.log('Ошибка');
@@ -66,7 +52,6 @@ class WebSocketService {
   };
 
   send = (action: SEND_ACTIONS, payload: { content: string }) => {
-    // debugger;
     if (this.socket) {
       if (action === SEND_ACTIONS.SEND_TEXT) this.socket.send(JSON.stringify({ ...payload, type: 'message' }));
       else if (action === SEND_ACTIONS.SEND_FILE) this.socket.send(JSON.stringify({ ...payload, type: 'file' }));
