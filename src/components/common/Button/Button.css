@@ -1,0 +1,34 @@
+.button {
+  padding: 0 50px;
+  border: none;
+  border-radius: 8px;
+  color: var(--color-main-white);
+  font-weight: 500;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 24px;
+  background: var(--color-blue);
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  user-select: none;
+
+  &:hover {
+    background: var(--color-lightblue);
+  }
+
+  &:disabled {
+    color: var(--color-text-first);
+    background: var(--color-gray-locked);
+    cursor: default;
+  }
+
+  &_active {
+    background: var(--color-darkblue);
+    transition: all 0s linear;
+
+    &:hover {
+      background: var(--color-darkblue);
+    }
+  }
+}
