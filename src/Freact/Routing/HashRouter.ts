@@ -1,5 +1,4 @@
 import { Route } from './Route';
-import { PlainObject } from '../../scripts/interfacesAndTypeApp';
 
 class HashRouter {
   private static __instance: HashRouter | null = null;
@@ -18,7 +17,8 @@ class HashRouter {
     HashRouter.__instance = this;
   }
 
-  use(pathname: string, block: any, props: PlainObject = {}) {
+  // FIXME: ВЫСОКИЙ. Как правильно указать, что block - это класс, который наследуется от Freact?
+  use(pathname: string, block: any, props: object = {}) {
     const route = new Route(`#${pathname}`, block, this._rootQuery, props);
     this.routes.push(route);
     return this;

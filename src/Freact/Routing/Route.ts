@@ -1,16 +1,20 @@
 import { render } from '../../scripts/utils/renderDom';
 import { isEqual } from '../../scripts/utils/myDash/isEqual';
-import { PlainObject } from '../../scripts/interfacesAndTypeApp';
 
 export class Route {
-  private _pathname: string;
-  private _blockClass: any;
-  private _block: any;
-  private _rootQuery: string;
-  private _props: PlainObject;
+  _pathname: string;
+  _blockClass: any;
+  _block: any;
+  _rootQuery: string;
+  _props: object;
+  // private _pathname: string;
+  // private _blockClass: any;
+  // private _block: any;
+  // private _rootQuery: string;
+  // private _props: object;
 
   // FIXME: ВЫСОКИЙ. Как делать проверку что view наследуется от Freact?
-  constructor(pathname: string, view: any, rootQuery: string, props: PlainObject) {
+  constructor(pathname: string, view: any, rootQuery: string, props: object) {
     this._pathname = pathname;
     this._blockClass = view;
     this._block = null;
@@ -27,6 +31,8 @@ export class Route {
   leave() {
     if (this._block) {
       this._block.hide();
+      // FIXME: ВЫСОКИЙ. Нужно полностью удальить экземпляр в Freact, вернусь позднее
+      // this._block = null;
     }
   }
 

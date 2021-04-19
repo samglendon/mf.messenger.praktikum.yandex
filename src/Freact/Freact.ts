@@ -177,5 +177,6 @@ export class Freact<Props extends IObj> {
     console.log('скрыл элемент');
     console.dirxml(this._currentElement);
     this.getContent().remove();
+    // this._newElement = null;
   }
 }

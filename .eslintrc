@@ -26,7 +26,15 @@
     "max-len": ["error", { "comments": 120, "code": 210 }],
     "no-undef": "off",
     "no-shadow": "off",
-    "no-underscore-dangle": [ "error", { "allow": [ "_currentElement", "__instance" ], "allowAfterThis": true } ],
+    "no-underscore-dangle": [ "error", { "allow": [
+      "_currentElement",
+      "__instance",
+//      для тестов пришлось добавить, чтобы eslint не ругался
+      "_pathname",
+      "_blockClass",
+      "_block",
+      "_props",
+    ], "allowAfterThis": true } ],
     "camelcase": ["error", {
       "allow": ["first_name", "second_name", "display_name", "created_by", "unread_count", "last_message", "user_id"]
     }],
@@ -36,6 +44,7 @@
     "object-curly-newline": ["error", {
       "ObjectPattern": { "minProperties": 7 }
     }],
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "no-unused-expressions": "off"
   }
 }
