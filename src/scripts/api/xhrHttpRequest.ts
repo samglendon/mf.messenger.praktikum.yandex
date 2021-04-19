@@ -52,6 +52,9 @@ export class HTTPTransport {
       if (!triesLeft) {
         throw err;
       }
+
+      // eslint-disable-next-line no-use-before-define
+      if (delay === 0) return methodRun(funcParams);
       // eslint-disable-next-line no-use-before-define
       return setTimeout(() => methodRun(funcParams), delay);
     };

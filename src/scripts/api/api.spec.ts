@@ -1,41 +1,22 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { expect } from 'chai';
-import { apiAuth } from './api';
+import chai from 'chai';
+import spies from 'chai-spies';
+import { HTTPTransport } from './xhrHttpRequest';
 
-// FIXME: ВЫСОКИЙ. Тесты не работают, т.к. в ts файлах используется импорт .js файлов. Если убрать то сработает,
-//  но при npm run compile файлы не будут найдены в браузере
-describe('Авторизация', () => {
-  it('Проверяем корректный logout', () => {
-    apiAuth.logout()
-      .catch((err) => expect(err).to.any);
-  });
+const { expect } = chai;
+chai.use(spies);
 
-  describe('Проверка авторизации через форму', () => {
-    it('Проверяем валидные данные в signin', () => {
-    });
+const createXhr = () => new HTTPTransport();
 
-    it('Проверяем валидные данные в signup', () => {
-    });
-  });
+describe('API Fetch', () => {
+  it('Проверяем отработку запросов с количеством попыток', () => {
+    const xhr = createXhr();
 
-  describe('Дополнительный функционал при авторизации', () => {
-    it('Что-то дополнительно связанное с авторизацией', () => {
-    });
+    const spyOnGet = chai.spy.on(xhr, 'get');
+
+    xhr.xhrWithRetry(5, 0).get('https://trololo');
+
+    setTimeout(() => {
+      expect(spyOnGet).to.have.been.called.exactly(5);
+    }, 1000);
   });
 });
-
-// describe('Typescript + Babel usage suite', () => { // the tests container
-//   // it('should return string correctly', () => { // the single test
-//   //   /* detect retina */
-//   //   expect(hello("mocha")).to.equal('Hello'); // Do I need to explain anything? It's like writing in English!
-//
-//
-//     /* fps limit */
-//     // expect(options.fpsLimit).to.equal(30); // As I said 3 lines above
-//     // emitters property is an array and for this test must be empty, this syntax works with strings too
-//     // expect(options.interactivity.modes.emitters).to.be.empty;
-//     // this is a little more complex, but still really clear
-//     // expect(options.particles.color).to.be.an("object").to.have.property("value").to.equal("#fff");
-//   // });
-//
-// });
