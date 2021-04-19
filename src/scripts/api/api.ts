@@ -1,4 +1,4 @@
-import { HTTPTransport } from './xhrHttpRequest';
+import { HTTPTransport } from './HTTPTransport';
 import { IChangeProfile, ISignin, ISignup } from '../interfacesAndTypeApp';
 
 const xhrApi = new HTTPTransport();

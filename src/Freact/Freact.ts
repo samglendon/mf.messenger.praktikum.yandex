@@ -1,6 +1,6 @@
 import Handlebars from 'handlebars';
 
-import { EventBus } from './Event-bus';
+import { EventBus } from './EventBus';
 import { EventsCollection } from './EventsCollection';
 import { handlebarsHelpers } from './handlebarsHelpers';
 import { observe } from './observe';

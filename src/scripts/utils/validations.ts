@@ -1,9 +1,9 @@
-const validatePassword = (value: string) => {
+const isPasswordValid = (value: string) => {
   const regExp = /(?=^.{8,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*/;
   return regExp.test(value);
 };
 
-const validateEmail = (value: string) => {
+const isEmailValid = (value: string) => {
   const regExp = /\w+((-|.)\w+)*@\w+(-\w+)*\.\w{2,}/;
   return regExp.test(value);
 };
@@ -37,5 +37,5 @@ const errorMessages = {
 };
 
 export {
-  validatePassword, validateEmail, validateUrl, sanitize, errorMessages,
+  isPasswordValid, isEmailValid, validateUrl, sanitize, errorMessages,
 };

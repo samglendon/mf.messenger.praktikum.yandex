@@ -1,6 +1,6 @@
-import { ProxyHandle } from './ProxyHandler';
 import { Freact } from './Freact';
 import { IObj } from './interfacesFreact';
+import { proxyHandler } from './proxyHandler';
 
 export const createState = (state: IObj) => {
   const stateTmp = Object.entries(state)
@@ -40,5 +40,5 @@ export const createState = (state: IObj) => {
       return result;
     }, {} as IObj);
 
-  return new Proxy(stateTmp, ProxyHandle());
+  return new Proxy(stateTmp, proxyHandler());
 };

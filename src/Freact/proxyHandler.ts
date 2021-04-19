@@ -2,7 +2,7 @@ interface IProxyObj {
   [key: string]: any
 }
 
-export const ProxyHandle = (callback?: Function) => ({
+export const proxyHandler = (callback?: Function) => ({
   get(target: IProxyObj, prop: string) {
     if (prop.startsWith('_')) {
       throw new Error('Нет прав на чтение приватного свойства');

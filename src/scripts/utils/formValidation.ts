@@ -1,4 +1,4 @@
-import { errorMessages, validateEmail, validatePassword } from './validations';
+import { errorMessages, isEmailValid, isPasswordValid } from './validations';
 
 export class FormValidation {
   form: HTMLFormElement;
@@ -31,7 +31,7 @@ export class FormValidation {
     this.setSubmitButtonState(this.form, this.button);
 
     if (event.target) {
-      if (this.checkInputValidity(<HTMLInputElement>event.target)) {
+      if (!this.isInputValid(<HTMLInputElement>event.target)) {
         this.activateError(<HTMLInputElement>event.target);
       } else {
         this.resetError(<HTMLInputElement>event.target);
@@ -47,29 +47,26 @@ export class FormValidation {
     elem.parentElement!.classList.remove(`${this.invalidContainerClass}_invalid`);
   }
 
-  checkInputValidity(elem: HTMLInputElement) {
+  isInputValid(elem: HTMLInputElement) {
     const errorElem = this.form.querySelector(`.${this.errorMessageClass}_${elem.name}`);
-    let isInvalid = 0;
+    let isValid = false;
 
     if (!errorElem) throw Error(`ошибка в formValidation: на найден элемент с классом ${this.errorMessageClass}! Этот элемент должен быть у каждого input`);
     // console.dir(elem);
     // if (elem.validity.typeMismatch) {
     if (elem.validity.valueMissing) {
       errorElem.textContent = errorMessages.must;
-      isInvalid++;
-    } else if (elem.name === 'email' && !validateEmail(elem.value)) {
+    } else if (elem.name === 'email' && !isEmailValid(elem.value)) {
       errorElem.textContent = errorMessages.email;
-      isInvalid++;
-    } else if (elem.name === 'password' && !validatePassword(elem.value)) {
+    } else if (elem.name === 'password' && !isPasswordValid(elem.value)) {
       errorElem.textContent = errorMessages.password;
-      isInvalid++;
     } else if ((elem.value.length < 2 || elem.value.length > 30)) {
       errorElem.textContent = errorMessages.length;
-      isInvalid++;
     } else {
       errorElem.textContent = errorMessages.ok;
+      isValid = true;
     }
-    return !!isInvalid;
+    return isValid;
   }
 
   setSubmitButtonState(form: HTMLFormElement, button: Element | null) {
@@ -77,7 +74,7 @@ export class FormValidation {
 
     Array.from(form.elements).forEach((item) => {
       if (!item.matches('.button')) {
-        if (this.checkInputValidity(item as HTMLInputElement)) {
+        if (!this.isInputValid(item as HTMLInputElement)) {
           isValid = false;
         }
       }

@@ -1,6 +1,6 @@
 import chai from 'chai';
 import spies from 'chai-spies';
-import { HTTPTransport } from './xhrHttpRequest';
+import { HTTPTransport } from './HTTPTransport';
 
 const { expect } = chai;
 chai.use(spies);
